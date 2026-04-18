@@ -14,11 +14,11 @@ body{font-family:'DM Sans',sans-serif;background:#FAFAF7;color:#1C1C1C;overflow-
 :root{
   --ink:#1C1C1C; --gold:#B8821E; --border:#E5E0D8;
   --muted:#888; --mid:#555; --bg:#FAFAF7; --bg2:#F2EEE7; --white:#fff;
-  --cn:#C0192A;   /* Chinese red */
-  --ml:#006B3C;   /* Malay green */
-  --in:#FF6B00;   /* Indian orange */
-  --ar:#1A3A5C;   /* Arab/Malay blue */
-  --eu:#5B4EC8;   /* Eurasian purple */
+  --cn:#C0192A;
+  --ml:#006B3C;
+  --in:#FF6B00;
+  --ar:#1A3A5C;
+  --eu:#5B4EC8;
   --sg:#C0192A;
 }
 img{display:block;max-width:100%;}
@@ -73,11 +73,11 @@ h1.ht em{font-family:'Playfair Display',serif;font-style:italic;color:var(--gold
 }
 .pill .dot{width:8px;height:8px;border-radius:50%;}
 .hero-r{position:relative;overflow:hidden;background:#1C1C1C;}
-.hero-r img{width:100%;height:100%;object-fit:cover;opacity:.7;
+.hero-r img{width:100%;height:100%;object-fit:cover;opacity:.74;
   transform:scale(1.04);transition:transform 9s ease;}
 .hero-r img.rdy{transform:scale(1);}
 .hero-badge{position:absolute;bottom:28px;left:28px;background:var(--white);
-  border-left:3px solid var(--gold);padding:12px 16px;}
+  border-left:3px solid var(--gold);padding:12px 16px;max-width:360px;}
 .hbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
 .hbv{font-size:16px;font-weight:700;color:var(--ink);margin-top:2px;}
 
@@ -101,6 +101,14 @@ h1.ht em{font-family:'Playfair Display',serif;font-style:italic;color:var(--gold
 .bp{font-size:14px;color:var(--mid);line-height:1.9;}
 .bp+.bp{margin-top:14px;}
 strong{font-weight:600;color:var(--ink);}
+
+/* ══════ CHAPTER IMAGE ══════ */
+.chapter-photo{margin:0 0 38px 0;}
+.chapter-photo .iw{height:320px;border:1px solid var(--border);}
+.chapter-photo .iw.tall{height:380px;}
+.chapter-photo .iw-cap{padding:20px 18px 14px;}
+.chapter-grid-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:38px;}
+.chapter-grid-photos .iw{height:250px;border:1px solid var(--border);}
 
 /* ══════ STAT CARDS ══════ */
 .stat{border-top:2px solid var(--ink);padding-top:16px;}
@@ -151,44 +159,8 @@ strong{font-weight:600;color:var(--ink);}
   border:1px solid var(--border);color:var(--muted);padding:2px 8px;
   display:inline-block;margin-top:4px;}
 
-/* ══════ TOWN MAP SECTION ══════ */
-.map-container{
-  position:relative;background:#F0EBE3;
-  border:1px solid var(--border);
-  overflow:hidden;
-  aspect-ratio:16/9;
-  max-height:480px;
-}
-/* Simple Singapore island SVG map */
-.map-svg{width:100%;height:100%;}
-.town-card{
-  position:absolute;
-  background:var(--white);border:1px solid var(--border);
-  padding:8px 12px;min-width:130px;
-  transform:translate(-50%,-100%);
-  font-size:12px;line-height:1.5;
-  box-shadow:0 4px 16px rgba(0,0,0,.08);
-  pointer-events:none;
-  transition:opacity .2s;
-}
-.town-dot{
-  position:absolute;
-  width:14px;height:14px;border-radius:50%;
-  transform:translate(-50%,-50%);
-  cursor:pointer;
-  border:2px solid var(--white);
-  box-shadow:0 2px 8px rgba(0,0,0,.2);
-  transition:transform .2s;
-}
-.town-dot:hover{transform:translate(-50%,-50%) scale(1.3);}
-.town-label{
-  position:absolute;font-size:10px;font-weight:600;
-  letter-spacing:1px;text-transform:uppercase;
-  white-space:nowrap;transform:translateX(-50%);
-}
-
-/* Town cards layout */
-.town-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px;}
+/* ══════ TOWN CARDS ══════ */
+.town-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;}
 .town-card-s{border:1px solid var(--border);background:var(--white);}
 .tc-head{padding:16px 18px 12px;border-bottom:1px solid var(--border);}
 .tc-name{font-size:16px;font-weight:700;color:var(--ink);}
@@ -206,8 +178,9 @@ strong{font-weight:600;color:var(--ink);}
 .food-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
 .food-culture{border:1px solid var(--border);background:var(--white);}
 .fc-head{padding:16px;border-bottom:1px solid var(--border);}
-.fc-flag{font-size:24px;margin-bottom:8px;}
-.fc-name{font-size:14px;font-weight:700;color:var(--ink);}
+.fc-flag{font-size:28px;margin-bottom:8px;line-height:1;}
+.fc-name{font-size:13px;font-weight:700;color:var(--ink);letter-spacing:2px;text-transform:uppercase;}
+.fc-sub{font-size:11px;color:var(--muted);margin-top:2px;}
 .fc-body{padding:14px 16px;}
 .food-item{padding:10px 0;border-bottom:1px solid var(--border);}
 .food-item:last-child{border-bottom:none;}
@@ -234,27 +207,43 @@ strong{font-weight:600;color:var(--ink);}
 .phrase-meaning{font-size:11px;color:var(--muted);margin-top:4px;}
 
 /* ══════ LEARN SECTION ══════ */
-.learn-item{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid var(--border);}
+.learn-item{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.08);}
 .learn-item:last-child{border-bottom:none;}
 .learn-n{font-family:'Playfair Display',serif;font-size:38px;font-weight:900;
-  color:var(--border);line-height:1;flex-shrink:0;}
+  color:rgba(255,255,255,.1);line-height:1;flex-shrink:0;}
 .learn-t{font-size:15px;font-weight:600;color:#fff;margin-bottom:6px;}
 .learn-b{font-size:13px;color:rgba(255,255,255,.5);line-height:1.8;}
 
 /* ══════ IMG WRAP ══════ */
-.iw{position:relative;overflow:hidden;}
+.iw{position:relative;overflow:hidden;background:#ddd;}
 .iw img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease;}
 .iw:hover img{transform:scale(1.04);}
 .iw-cap{position:absolute;bottom:0;left:0;right:0;
   background:linear-gradient(to top,rgba(28,28,28,.88) 0%,transparent 100%);
   padding:18px 16px 12px;}
 .iw-cl{font-size:9px;letter-spacing:3px;color:rgba(184,130,30,.8);text-transform:uppercase;margin-bottom:3px;}
-.iw-cv{font-size:13px;color:rgba(255,255,255,.8);}
+.iw-cv{font-size:13px;color:rgba(255,255,255,.88);line-height:1.6;}
 
 /* ══════ PULL QUOTE ══════ */
 .pq{border-left:3px solid var(--gold);padding:18px 24px;background:rgba(184,130,30,.06);margin:24px 0;}
 .pq blockquote{font-family:'Playfair Display',serif;font-size:clamp(15px,2vw,20px);font-style:italic;color:var(--ink);line-height:1.6;}
 .pq cite{display:block;font-size:11px;color:var(--muted);margin-top:10px;font-style:normal;letter-spacing:2px;text-transform:uppercase;}
+
+/* ══════ CREDITS ══════ */
+.credit-box{
+  margin-top:44px;border-top:1px solid rgba(255,255,255,.08);padding-top:24px;
+}
+.credit-title{
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;
+}
+.credit-list{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;
+}
+.credit-item{
+  font-size:11px;color:rgba(255,255,255,.38);line-height:1.7;
+}
+.credit-item a{color:rgba(255,255,255,.55);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.12);}
+.credit-item a:hover{color:#fff;border-bottom-color:rgba(255,255,255,.35);}
 
 /* ══════ FOOTER ══════ */
 footer{padding:clamp(52px,8vh,72px) clamp(20px,4vw,56px) 32px;background:var(--ink);}
@@ -280,6 +269,7 @@ footer{padding:clamp(52px,8vh,72px) clamp(20px,4vw,56px) 32px;background:var(--i
   .g2{grid-template-columns:1fr;}
   .phrase-grid{grid-template-columns:1fr 1fr;}
   .ft-in{grid-template-columns:1fr 1fr;gap:32px;}
+  .chapter-grid-photos{grid-template-columns:1fr;}
 }
 @media(max-width:640px){
   #dnav{display:none;}
@@ -295,6 +285,8 @@ footer{padding:clamp(52px,8vh,72px) clamp(20px,4vw,56px) 32px;background:var(--i
   .ft-btm{flex-direction:column;gap:6px;text-align:center;}
   #btt{bottom:18px;right:18px;}
   .lang-tab{padding:8px 12px;font-size:10px;}
+  .credit-list{grid-template-columns:1fr;}
+  .chapter-photo .iw,.chapter-photo .iw.tall,.chapter-grid-photos .iw{height:240px;}
 }
 </style>
 </head>
@@ -336,7 +328,7 @@ footer{padding:clamp(52px,8vh,72px) clamp(20px,4vw,56px) 32px;background:var(--i
     </div>
   </div>
   <div class="hero-r">
-    <img id="hi" src="https://images.unsplash.com/photo-1508780709619-79562169bc64?w=1200&q=80" alt="Singapore multicultural">
+    <img id="hi" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Singapore_Chinatown_Street-04_%2811684574045%29.jpg" alt="Singapore multicultural">
     <div class="hero-badge">
       <div class="hbl">公用語</div>
       <div class="hbv">英語 / 中国語 / マレー語 / タミル語</div>
@@ -347,14 +339,24 @@ footer{padding:clamp(52px,8vh,72px) clamp(20px,4vw,56px) 32px;background:var(--i
 <!-- ══ S1: 多様性の起源 ══ -->
 <section id="s1" class="sec">
 <div class="inner">
+
   <div class="f"><div class="ch-lbl">Chapter 01</div></div>
   <div class="f d1"><h2 class="ch-t">多様性の起源・変遷・<br>政策</h2></div>
   <div class="f d2"><p class="ch-sub">Origins, History & Government Policies Behind Singapore's Diversity</p></div>
   <div class="f d2"><div class="ch-rule"></div></div>
 
+  <div class="chapter-photo f">
+    <div class="iw tall">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Singapore_Chinatown_Street-02_%2811684649225%29.jpg" alt="Singapore Chinatown street">
+      <div class="iw-cap">
+        <div class="iw-cl">Chapter Image</div>
+        <div class="iw-cv">開港以来の移民の流れと、都市の中に積み重なった多文化の痕跡を感じられるチャイナタウンの街並み</div>
+      </div>
+    </div>
+  </div>
+
   <div class="g2" style="margin-bottom:52px;">
     <div>
-      <!-- Ethnicity bars -->
       <h3 style="font-size:15px;font-weight:600;margin-bottom:20px;" class="f">居住者の民族構成（2025年）</h3>
       <div class="eth-bar f">
         <div class="eth-row">
@@ -389,14 +391,14 @@ footer{padding:clamp(52px,8vh,72px) clamp(20px,4vw,56px) 32px;background:var(--i
         <div class="stat f"><div class="stat-n">160<span class="stat-u">+</span></div><div class="stat-l">共存する国籍数</div></div>
         <div class="stat g f d1"><div class="stat-n">4<span class="stat-u">言語</span></div><div class="stat-l">公用語<br>英・中・馬・泰</div></div>
         <div class="stat f d2"><div class="stat-n">10<span class="stat-u">宗教</span></div><div class="stat-l">公認宗教数<br>世界最高水準</div></div>
-        <div class="stat g f d3"><div class="stat-n">1:6<span class="stat-u"></span></div><div class="stat-l">異民族間婚姻<br>（市民婚姻の約1/6）</div></div>
+        <div class="stat g f d3"><div class="stat-n">1:6</div><div class="stat-l">異民族間婚姻<br>（市民婚姻の約1/6）</div></div>
       </div>
     </div>
 
     <div>
-      <div class="iw f" style="height:260px;margin-bottom:24px;">
-        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&q=80" alt="Singapore diversity">
-        <div class="iw-cap"><div class="iw-cl">Multicultural Singapore</div><div class="iw-cv">多文化が共存する街並み</div></div>
+      <div class="iw f" style="height:260px;margin-bottom:24px;border:1px solid var(--border);">
+        <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Kampong_Glam_-_Masjid_Sultan_from_Bussorah_St.jpg" alt="Singapore diversity">
+        <div class="iw-cap"><div class="iw-cl">Multicultural Singapore</div><div class="iw-cv">異なる信仰・文化・街区がすぐ隣り合って存在するシンガポールらしい景観</div></div>
       </div>
       <div class="pq f">
         <blockquote>「私たちには奇跡を起こす以外に選択肢がなかった。」</blockquote>
@@ -406,7 +408,6 @@ footer{padding:clamp(52px,8vh,72px) clamp(20px,4vw,56px) 32px;background:var(--i
     </div>
   </div>
 
-  <!-- History timeline -->
   <div class="g2">
     <div>
       <h3 style="font-size:15px;font-weight:600;margin-bottom:24px;" class="f">多様性の歴史</h3>
@@ -450,10 +451,21 @@ footer{padding:clamp(52px,8vh,72px) clamp(20px,4vw,56px) 32px;background:var(--i
 <!-- ══ S2: 年間イベントカレンダー ══ -->
 <section id="s2" class="sec-alt">
 <div class="inner">
+
   <div class="f"><div class="ch-lbl">Chapter 02</div></div>
   <div class="f d1"><h2 class="ch-t">年間文化イベント<br>カレンダー</h2></div>
   <div class="f d2"><p class="ch-sub">Annual Cultural Events — 12 Months of Celebration</p></div>
   <div class="f d2"><div class="ch-rule"></div></div>
+
+  <div class="chapter-photo f">
+    <div class="iw">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Chinese_New_Year_decorations_in_Chinatown%2C_Singapore%2C_20240122_0852_2963.jpg" alt="Chinese New Year decorations in Chinatown, Singapore">
+      <div class="iw-cap">
+        <div class="iw-cl">Festival Scene</div>
+        <div class="iw-cv">チャイナタウンの旧正月装飾。シンガポールでは宗教・民族ごとの祭りが一年を通じて街の風景そのものを変えていく</div>
+      </div>
+    </div>
+  </div>
 
   <div class="g2">
     <div class="cal f">
@@ -632,59 +644,32 @@ footer{padding:clamp(52px,8vh,72px) clamp(20px,4vw,56px) 32px;background:var(--i
   <div class="f d2"><p class="ch-sub">Cultural Districts — Singapore's Ethnic Neighbourhoods</p></div>
   <div class="f d2"><div class="ch-rule"></div></div>
 
-  <!-- Map visual (SVG) -->
-  <div class="f" style="border:1px solid var(--border);background:#EDE8E0;padding:32px;margin-bottom:36px;position:relative;">
-    <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:20px;font-weight:500;">📍 シンガポール 文化地区マップ</div>
-    <!-- Simple dot map of Singapore -->
-    <svg viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:300px;">
-      <!-- Singapore island silhouette (simplified) -->
-      <path d="M 60,100 Q 80,70 120,65 Q 160,58 220,55 Q 290,50 360,58 Q 420,65 470,75 Q 510,85 540,110 Q 555,130 550,155 Q 545,175 520,185 Q 490,195 460,200 Q 420,205 380,208 Q 340,210 300,205 Q 260,200 220,195 Q 180,190 150,185 Q 110,175 85,162 Q 60,148 55,130 Z"
-            fill="#D6CFC4" stroke="#C4BAB0" stroke-width="2"/>
-      <!-- Water -->
-      <text x="30" y="250" font-size="10" fill="#8B9BB4" font-family="DM Sans,sans-serif" font-style="italic">Strait of Singapore</text>
-      <text x="200" y="35" font-size="10" fill="#8B9BB4" font-family="DM Sans,sans-serif" font-style="italic">Johor Strait (Malaysia)</text>
-
-      <!-- Chinatown dot -->
-      <circle cx="260" cy="148" r="10" fill="#C0192A" stroke="white" stroke-width="2" opacity=".9"/>
-      <text x="260" y="172" font-size="9" fill="#C0192A" font-weight="bold" font-family="DM Sans,sans-serif" text-anchor="middle">CHINATOWN</text>
-
-      <!-- Little India dot -->
-      <circle cx="310" cy="110" r="10" fill="#FF6B00" stroke="white" stroke-width="2" opacity=".9"/>
-      <text x="310" y="96" font-size="9" fill="#FF6B00" font-weight="bold" font-family="DM Sans,sans-serif" text-anchor="middle">LITTLE INDIA</text>
-
-      <!-- Kampong Glam dot -->
-      <circle cx="355" cy="118" r="10" fill="#1A3A5C" stroke="white" stroke-width="2" opacity=".9"/>
-      <text x="390" y="114" font-size="9" fill="#1A3A5C" font-weight="bold" font-family="DM Sans,sans-serif" text-anchor="start">KAMPONG GLAM</text>
-
-      <!-- Tiong Bahru dot -->
-      <circle cx="220" cy="155" r="8" fill="#5B4EC8" stroke="white" stroke-width="2" opacity=".9"/>
-      <text x="175" y="162" font-size="8" fill="#5B4EC8" font-family="DM Sans,sans-serif" text-anchor="end">TIONG BAHRU</text>
-
-      <!-- Marina Bay area -->
-      <circle cx="310" cy="168" r="7" fill="#B8821E" stroke="white" stroke-width="2" opacity=".9"/>
-      <text x="310" y="190" font-size="8" fill="#B8821E" font-family="DM Sans,sans-serif" text-anchor="middle">MARINA BAY</text>
-
-      <!-- Orchard -->
-      <circle cx="240" cy="118" r="7" fill="#006B3C" stroke="white" stroke-width="2" opacity=".9"/>
-      <text x="205" y="115" font-size="8" fill="#006B3C" font-family="DM Sans,sans-serif" text-anchor="end">ORCHARD</text>
-
-      <!-- Legend -->
-      <rect x="10" y="10" width="140" height="80" fill="rgba(255,255,255,.8)" rx="4"/>
-      <text x="18" y="26" font-size="10" fill="#555" font-family="DM Sans,sans-serif" font-weight="600">文化地区</text>
-      <circle cx="22" cy="38" r="5" fill="#C0192A"/>
-      <text x="32" y="42" font-size="9" fill="#555" font-family="DM Sans,sans-serif">チャイナタウン</text>
-      <circle cx="22" cy="52" r="5" fill="#FF6B00"/>
-      <text x="32" y="56" font-size="9" fill="#555" font-family="DM Sans,sans-serif">リトルインディア</text>
-      <circle cx="22" cy="66" r="5" fill="#1A3A5C"/>
-      <text x="32" y="70" font-size="9" fill="#555" font-family="DM Sans,sans-serif">カンポングラム</text>
-      <circle cx="22" cy="80" r="5" fill="#5B4EC8"/>
-      <text x="32" y="84" font-size="9" fill="#555" font-family="DM Sans,sans-serif">その他</text>
-    </svg>
+  <!-- 写真差し替え -->
+  <div class="chapter-grid-photos f">
+    <div class="iw">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Singapore_Chinatown_Street-05_%2811684898944%29.jpg" alt="Singapore Chinatown">
+      <div class="iw-cap">
+        <div class="iw-cl">Chinatown</div>
+        <div class="iw-cv">赤い提灯と路地の連なりが象徴的な中国系文化地区</div>
+      </div>
+    </div>
+    <div class="iw">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Little_India_Singapore_1.jpg" alt="Little India Singapore">
+      <div class="iw-cap">
+        <div class="iw-cl">Little India</div>
+        <div class="iw-cv">色彩豊かな商店街とスパイスの香りが印象的なインド系地区</div>
+      </div>
+    </div>
+    <div class="iw">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Kampong_Glam_-_Masjid_Sultan_from_Bussorah_St.jpg" alt="Kampong Glam Singapore">
+      <div class="iw-cap">
+        <div class="iw-cl">Kampong Glam</div>
+        <div class="iw-cv">スルタン・モスクを中心に広がるマレー・アラブ文化圏</div>
+      </div>
+    </div>
   </div>
 
-  <!-- Town detail cards -->
   <div class="town-grid f">
-    <!-- Chinatown -->
     <div class="town-card-s">
       <div class="tc-head" style="border-top:3px solid var(--cn);">
         <div style="font-size:22px;margin-bottom:6px;">🏮</div>
@@ -705,10 +690,9 @@ footer{padding:clamp(52px,8vh,72px) clamp(20px,4vw,56px) 32px;background:var(--i
       </div>
     </div>
 
-    <!-- Little India -->
     <div class="town-card-s">
       <div class="tc-head" style="border-top:3px solid var(--in);">
-        <div style="font-size:22px;margin-bottom:6px;">🕌</div>
+        <div style="font-size:22px;margin-bottom:6px;">🪔</div>
         <div class="tc-name">リトルインディア</div>
         <div class="tc-sub">Little India / 小印度</div>
         <div class="tc-tag" style="background:var(--in);">インド系</div>
@@ -726,7 +710,6 @@ footer{padding:clamp(52px,8vh,72px) clamp(20px,4vw,56px) 32px;background:var(--i
       </div>
     </div>
 
-    <!-- Kampong Glam -->
     <div class="town-card-s">
       <div class="tc-head" style="border-top:3px solid var(--ar);">
         <div style="font-size:22px;margin-bottom:6px;">🕌</div>
@@ -747,7 +730,6 @@ footer{padding:clamp(52px,8vh,72px) clamp(20px,4vw,56px) 32px;background:var(--i
       </div>
     </div>
 
-    <!-- Tiong Bahru -->
     <div class="town-card-s">
       <div class="tc-head" style="border-top:3px solid var(--eu);">
         <div style="font-size:22px;margin-bottom:6px;">🏛️</div>
@@ -767,7 +749,6 @@ footer{padding:clamp(52px,8vh,72px) clamp(20px,4vw,56px) 32px;background:var(--i
       </div>
     </div>
 
-    <!-- Holland Village -->
     <div class="town-card-s">
       <div class="tc-head" style="border-top:3px solid #2D7D46;">
         <div style="font-size:22px;margin-bottom:6px;">🌍</div>
@@ -787,7 +768,6 @@ footer{padding:clamp(52px,8vh,72px) clamp(20px,4vw,56px) 32px;background:var(--i
       </div>
     </div>
 
-    <!-- Geylang -->
     <div class="town-card-s">
       <div class="tc-head" style="border-top:3px solid #8B6914;">
         <div style="font-size:22px;margin-bottom:6px;">🌃</div>
@@ -818,13 +798,22 @@ footer{padding:clamp(52px,8vh,72px) clamp(20px,4vw,56px) 32px;background:var(--i
   <div class="f d2"><p class="ch-sub">Top 3 Dishes by Culture — Food as Cultural Heritage</p></div>
   <div class="f d2"><div class="ch-rule"></div></div>
 
+  <div class="chapter-photo f">
+    <div class="iw">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Hawker_Center_in_Chinatown%2C_Singapore.jpg" alt="Hawker Center in Chinatown, Singapore">
+      <div class="iw-cap">
+        <div class="iw-cl">Food Culture</div>
+        <div class="iw-cv">シンガポールの食文化は、多民族社会そのものを日常の食卓に落とし込んだホーカー文化の中で最も鮮やかに体感できる</div>
+      </div>
+    </div>
+  </div>
+
   <div class="food-grid f">
-    <!-- Singapore -->
     <div class="food-culture">
       <div class="fc-head" style="border-top:3px solid var(--sg);">
         <div class="fc-flag">🦁</div>
-        <div class="fc-name">シンガポール料理</div>
-        <div style="font-size:11px;color:var(--muted);margin-top:2px;">多文化融合の独自料理</div>
+        <div class="fc-name">🦁</div>
+        <div class="fc-sub">シンガポール料理 / 多文化融合の独自料理</div>
       </div>
       <div class="fc-body">
         <div class="food-item">
@@ -845,12 +834,11 @@ footer{padding:clamp(52px,8vh,72px) clamp(20px,4vw,56px) 32px;background:var(--i
       </div>
     </div>
 
-    <!-- Chinese -->
     <div class="food-culture">
       <div class="fc-head" style="border-top:3px solid var(--cn);">
         <div class="fc-flag">🇨🇳</div>
-        <div class="fc-name">中国系料理</div>
-        <div style="font-size:11px;color:var(--muted);margin-top:2px;">福建・潮州・広東料理</div>
+        <div class="fc-name">🇨🇳</div>
+        <div class="fc-sub">中国系料理 / 福建・潮州・広東料理</div>
       </div>
       <div class="fc-body">
         <div class="food-item">
@@ -871,12 +859,11 @@ footer{padding:clamp(52px,8vh,72px) clamp(20px,4vw,56px) 32px;background:var(--i
       </div>
     </div>
 
-    <!-- Malay -->
     <div class="food-culture">
       <div class="fc-head" style="border-top:3px solid var(--ml);">
         <div class="fc-flag">🇲🇾</div>
-        <div class="fc-name">マレー料理</div>
-        <div style="font-size:11px;color:var(--muted);margin-top:2px;">ハラール・スパイス文化</div>
+        <div class="fc-name">🇲🇾</div>
+        <div class="fc-sub">マレー料理 / ハラール・スパイス文化</div>
       </div>
       <div class="fc-body">
         <div class="food-item">
@@ -897,12 +884,11 @@ footer{padding:clamp(52px,8vh,72px) clamp(20px,4vw,56px) 32px;background:var(--i
       </div>
     </div>
 
-    <!-- Indian -->
     <div class="food-culture">
       <div class="fc-head" style="border-top:3px solid var(--in);">
         <div class="fc-flag">🇮🇳</div>
-        <div class="fc-name">インド料理</div>
-        <div style="font-size:11px;color:var(--muted);margin-top:2px;">南インド・タミル系中心</div>
+        <div class="fc-name">🇮🇳</div>
+        <div class="fc-sub">インド料理 / 南インド・タミル系中心</div>
       </div>
       <div class="fc-body">
         <div class="food-item">
@@ -923,12 +909,11 @@ footer{padding:clamp(52px,8vh,72px) clamp(20px,4vw,56px) 32px;background:var(--i
       </div>
     </div>
 
-    <!-- Eurasian / Other -->
     <div class="food-culture">
       <div class="fc-head" style="border-top:3px solid var(--eu);">
         <div class="fc-flag">🌏</div>
-        <div class="fc-name">プラナカン・その他</div>
-        <div style="font-size:11px;color:var(--muted);margin-top:2px;">ペラナカン（ニョニャ）文化</div>
+        <div class="fc-name">🌏</div>
+        <div class="fc-sub">プラナカン・その他 / ペラナカン（ニョニャ）文化</div>
       </div>
       <div class="fc-body">
         <div class="food-item">
@@ -960,12 +945,22 @@ footer{padding:clamp(52px,8vh,72px) clamp(20px,4vw,56px) 32px;background:var(--i
   <div class="f d2"><p class="ch-sub">Essential Phrases — Greetings in Singapore's Languages</p></div>
   <div class="f d2"><div class="ch-rule"></div></div>
 
+  <div class="chapter-photo f">
+    <div class="iw">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Geylang_Serai_Hari_Raya_Light-Up_2026.jpg" alt="Geylang Serai Hari Raya Light Up">
+      <div class="iw-cap">
+        <div class="iw-cl">Language & Daily Culture</div>
+        <div class="iw-cv">同じ都市の中で、英語・中国語・マレー語・タミル語・シングリッシュが生活場面ごとに自然に混ざり合うのがシンガポールらしさ</div>
+      </div>
+    </div>
+  </div>
+
   <div class="lang-tabs f">
-    <button class="lang-tab active" onclick="switchLang(this,'en')">🇸🇬 英語</button>
-    <button class="lang-tab" onclick="switchLang(this,'zh')">🇨🇳 中国語</button>
-    <button class="lang-tab" onclick="switchLang(this,'ms')">🇲🇾 マレー語</button>
-    <button class="lang-tab" onclick="switchLang(this,'ta')">🇮🇳 タミル語</button>
-    <button class="lang-tab" onclick="switchLang(this,'sg')">🦁 シングリッシュ</button>
+    <button class="lang-tab active" onclick="switchLang(this,'en')">🇸🇬</button>
+    <button class="lang-tab" onclick="switchLang(this,'zh')">🇨🇳</button>
+    <button class="lang-tab" onclick="switchLang(this,'ms')">🇲🇾</button>
+    <button class="lang-tab" onclick="switchLang(this,'ta')">🇮🇳</button>
+    <button class="lang-tab" onclick="switchLang(this,'sg')">🦁</button>
   </div>
 
   <!-- English -->
@@ -1052,6 +1047,16 @@ footer{padding:clamp(52px,8vh,72px) clamp(20px,4vw,56px) 32px;background:var(--i
   <div class="f d2"><p class="ch-sub wh">Key Lessons — What Singapore's Cultural Diversity Teaches Us</p></div>
   <div class="f d2"><div class="ch-rule wh"></div></div>
 
+  <div class="chapter-photo f">
+    <div class="iw">
+      <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Chinese_New_Year_in_Chinatown%2C_Singapore_%283212670506%29.jpg" alt="Chinese New Year in Chinatown Singapore">
+      <div class="iw-cap">
+        <div class="iw-cl">Closing Image</div>
+        <div class="iw-cv">異なる文化が対立ではなく祝祭として都市に溶け込んでいることが、シンガポールの多様性を最も象徴している</div>
+      </div>
+    </div>
+  </div>
+
   <div class="g2">
     <div>
       <div class="learn-item f">
@@ -1083,18 +1088,32 @@ footer{padding:clamp(52px,8vh,72px) clamp(20px,4vw,56px) 32px;background:var(--i
     </div>
   </div>
 
-  <!-- closing quote -->
   <div style="border-left:3px solid var(--gold);padding:20px 28px;background:rgba(184,130,30,.06);margin-top:52px;" class="f">
-    <blockquote style="font-family:'Playfair Display',serif;font-size:clamp(16px,2.2vw,22px);font-style:italic;color:#fff;line-height:1.6;">「シンガポールは多様性が「弱点」ではなく「最大の強み」であることを証明した都市だ。」</blockquote>
+    <blockquote style="font-family:'Playfair Display',serif;font-size:clamp(16px,2.2vw,22px);font-style:italic;color:#fff;line-height:1.6;">「シンガポールは多様性が『弱点』ではなく『最大の強み』であることを証明した都市だ。」</blockquote>
     <div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:12px;letter-spacing:2px;text-transform:uppercase;">— Singapore Culture Guide 2025</div>
   </div>
 
-  <!-- back link -->
   <div style="margin-top:48px;text-align:center;" class="f">
     <a href="index.html" style="display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.15);padding:13px 26px;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);transition:border-color .3s,color .3s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)';" onmouseout="this.style.borderColor='rgba(255,255,255,.15)';this.style.color='rgba(255,255,255,.4)';">
       ← Singapore Life Guide Top
     </a>
   </div>
+
+  <!-- IMAGE CREDITS -->
+  <div class="credit-box f">
+    <div class="credit-title">Photo Credits</div>
+    <div class="credit-list">
+      <div class="credit-item">Hero / Chapter 1: Singapore Chinatown Street-04 / Street-02 — Wikimedia Commons / CC BY-SA</div>
+      <div class="credit-item">Chapter 1 sub image / Chapter 3 photo: Kampong Glam - Masjid Sultan from Bussorah St — Wikimedia Commons / CC BY-SA</div>
+      <div class="credit-item">Chapter 2: Chinese New Year decorations in Chinatown, Singapore (2024) — Wikimedia Commons / CC BY 4.0</div>
+      <div class="credit-item">Chapter 3: Little India Singapore 1 — Wikimedia Commons / own work upload</div>
+      <div class="credit-item">Chapter 4: Hawker Center in Chinatown, Singapore — Wikimedia Commons / CC BY</div>
+      <div class="credit-item">Chapter 5: Geylang Serai Hari Raya Light-Up 2026 — Wikimedia Commons / CC BY-SA 4.0</div>
+      <div class="credit-item">Chapter 6: Chinese New Year in Chinatown, Singapore — Wikimedia Commons / CC BY-SA</div>
+      <div class="credit-item">必要に応じて各画像の詳細な作者名・ライセンスは該当ファイルページで確認してください。</div>
+    </div>
+  </div>
+
 </div>
 </section>
 
@@ -1118,7 +1137,7 @@ footer{padding:clamp(52px,8vh,72px) clamp(20px,4vw,56px) 32px;background:var(--i
   </div>
   <div class="ft-btm">
     <span>© 2025 Singapore Life Guide — Culture</span>
-    <span>Images: Unsplash (CC0)</span>
+    <span>Images: Wikimedia Commons</span>
   </div>
 </footer>
 
@@ -1128,14 +1147,23 @@ footer{padding:clamp(52px,8vh,72px) clamp(20px,4vw,56px) 32px;background:var(--i
 /* Nav active */
 const secs=['s1','s2','s3','s4','s5','s6'];
 const nvs=document.querySelectorAll('.nv');
-const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)nvs.forEach((b,i)=>{b.classList.toggle('on',secs[i]===x.target.id);});});},{threshold:0.2});
+const io=new IntersectionObserver(e=>{
+  e.forEach(x=>{
+    if(x.isIntersecting){
+      nvs.forEach((b,i)=>{b.classList.toggle('on',secs[i]===x.target.id);});
+    }
+  });
+},{threshold:0.2});
 secs.forEach(id=>{const el=document.getElementById(id);if(el)io.observe(el);});
 
 /* Scroll */
 window.addEventListener('scroll',()=>{document.getElementById('btt').classList.toggle('show',window.scrollY>600);});
 
 /* Nav funcs */
-function go(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'});document.getElementById('sm').classList.remove('open');}
+function go(id){
+  document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
+  document.getElementById('sm').classList.remove('open');
+}
 function toggleM(){document.getElementById('sm').classList.toggle('open');}
 document.addEventListener('click',e=>{
   const m=document.getElementById('sm'),h=document.getElementById('hbg');
@@ -1147,7 +1175,11 @@ window.addEventListener('load',()=>document.getElementById('hi')?.classList.add(
 
 /* Fade observer */
 const fades=document.querySelectorAll('.f,.fl,.fr');
-const fo=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v');});},{threshold:0.1});
+const fo=new IntersectionObserver(e=>{
+  e.forEach(x=>{
+    if(x.isIntersecting)x.target.classList.add('v');
+  });
+},{threshold:0.1});
 fades.forEach(el=>{if(!el.classList.contains('v'))fo.observe(el);});
 
 /* Language tab switcher */
@@ -1159,4 +1191,4 @@ function switchLang(btn, lang){
 }
 </script>
 </body>
-</html>
+  </html>
