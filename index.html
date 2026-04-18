@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Singapore Culture Guide | シンガポール文化多様性ガイド</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ══════ RESET & ROOT ══════ */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:#FAFAF7;color:#1C1C1C;overflow-x:hidden;line-height:1.7;}
+:root{
+  --ink:#1C1C1C; --gold:#B8821E; --border:#E5E0D8;
+  --muted:#888; --mid:#555; --bg:#FAFAF7; --bg2:#F2EEE7; --white:#fff;
+  --cn:#C0192A;   /* Chinese red */
+  --ml:#006B3C;   /* Malay green */
+  --in:#FF6B00;   /* Indian orange */
+  --ar:#1A3A5C;   /* Arab/Malay blue */
+  --eu:#5B4EC8;   /* Eurasian purple */
+  --sg:#C0192A;
+}
+img{display:block;max-width:100%;}
+
+/* ══════ FADE ══════ */
+.f{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease;}
+.f.v{opacity:1;transform:translateY(0);}
+.f.d1{transition-delay:.12s;} .f.d2{transition-delay:.24s;}
+.f.d3{transition-delay:.36s;} .f.d4{transition-delay:.48s;}
+.fl{opacity:0;transform:translateX(-28px);transition:opacity .8s ease,transform .8s ease;}
+.fl.v{opacity:1;transform:translateX(0);}
+.fr{opacity:0;transform:translateX(28px);transition:opacity .8s ease,transform .8s ease;}
+.fr.v{opacity:1;transform:translateX(0);}
+
+/* ══════ HEADER ══════ */
+#hdr{
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  background:rgba(250,250,247,.96);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);height:58px;
+  padding:0 clamp(20px,4vw,56px);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--ink);}
+.logo em{font-style:normal;color:var(--gold);}
+#dnav{display:flex;}
+.nv{border:none;background:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);padding:6px 12px;cursor:pointer;transition:color .2s;font-family:'DM Sans',sans-serif;}
+.nv:hover,.nv.on{color:var(--ink);}
+#hbg{display:none;border:none;background:none;font-size:22px;color:var(--ink);cursor:pointer;}
+#sm{display:none;position:fixed;top:58px;left:0;right:0;z-index:299;
+  background:var(--white);border-bottom:1px solid var(--border);padding:12px 20px;}
+#sm.open{display:block;}
+.sl{display:block;padding:10px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--ink);cursor:pointer;}
+
+/* ══════ HERO ══════ */
+#hero{padding-top:58px;min-height:100svh;display:grid;grid-template-columns:1fr 1fr;}
+.hero-l{display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(48px,8vh,96px) clamp(20px,5vw,72px);background:var(--bg);}
+.hero-ey{display:flex;align-items:center;gap:12px;
+  font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:24px;}
+.hero-ey::before{content:'';width:28px;height:1px;background:var(--gold);}
+h1.ht{font-family:'Noto Serif JP',serif;font-size:clamp(30px,4.5vw,58px);
+  font-weight:300;line-height:1.2;color:var(--ink);margin-bottom:24px;}
+h1.ht em{font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);}
+.hero-p{font-size:14px;color:var(--muted);line-height:1.9;max-width:400px;margin-bottom:40px;}
+.hero-pills{display:flex;gap:8px;flex-wrap:wrap;}
+.pill{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 14px;border:1px solid var(--border);
+  font-size:12px;color:var(--mid);
+  transition:border-color .2s,color .2s;cursor:default;
+}
+.pill .dot{width:8px;height:8px;border-radius:50%;}
+.hero-r{position:relative;overflow:hidden;background:#1C1C1C;}
+.hero-r img{width:100%;height:100%;object-fit:cover;opacity:.7;
+  transform:scale(1.04);transition:transform 9s ease;}
+.hero-r img.rdy{transform:scale(1);}
+.hero-badge{position:absolute;bottom:28px;left:28px;background:var(--white);
+  border-left:3px solid var(--gold);padding:12px 16px;}
+.hbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+.hbv{font-size:16px;font-weight:700;color:var(--ink);margin-top:2px;}
+
+/* ══════ SECTIONS ══════ */
+.sec{padding:clamp(72px,10vh,120px) clamp(20px,4vw,56px);border-bottom:1px solid var(--border);}
+.sec-alt{padding:clamp(72px,10vh,120px) clamp(20px,4vw,56px);background:var(--bg2);border-bottom:1px solid var(--border);}
+.sec-dark{padding:clamp(72px,10vh,120px) clamp(20px,4vw,56px);background:var(--ink);}
+.inner{max-width:980px;margin:0 auto;}
+.inner-w{max-width:1100px;margin:0 auto;}
+.ch-lbl{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.ch-t{font-family:'Noto Serif JP',serif;font-size:clamp(24px,3.5vw,42px);
+  font-weight:300;color:var(--ink);line-height:1.25;margin-bottom:10px;}
+.ch-t.wh{color:#fff;}
+.ch-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:14px;color:var(--muted);margin-bottom:48px;}
+.ch-sub.wh{color:rgba(255,255,255,.4);}
+.ch-rule{width:40px;height:2px;background:var(--ink);margin-bottom:48px;}
+.ch-rule.wh{background:rgba(255,255,255,.2);}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,60px);align-items:start;}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,28px);}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,20px);}
+.bp{font-size:14px;color:var(--mid);line-height:1.9;}
+.bp+.bp{margin-top:14px;}
+strong{font-weight:600;color:var(--ink);}
+
+/* ══════ STAT CARDS ══════ */
+.stat{border-top:2px solid var(--ink);padding-top:16px;}
+.stat-n{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,48px);font-weight:700;color:var(--ink);line-height:1;}
+.stat-u{font-size:.42em;font-weight:300;color:var(--muted);}
+.stat-l{font-size:11px;color:var(--muted);margin-top:7px;line-height:1.6;}
+.stat.g{border-top-color:var(--gold);}
+.stat.g .stat-n{color:var(--gold);}
+
+/* ══════ ETHNICITY BARS ══════ */
+.eth-bar{display:flex;flex-direction:column;gap:16px;}
+.eth-row{display:flex;align-items:center;gap:14px;}
+.eth-label{font-size:13px;color:var(--mid);min-width:90px;flex-shrink:0;}
+.eth-track{flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden;}
+.eth-fill{height:100%;border-radius:4px;transition:width 1.2s cubic-bezier(.16,1,.3,1);}
+.eth-val{font-size:13px;font-weight:600;min-width:44px;text-align:right;}
+
+/* ══════ TIMELINE ══════ */
+.tl{border-left:1px solid var(--border);padding-left:28px;margin-left:10px;}
+.tl-item{position:relative;padding-bottom:28px;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-item::before{content:'';position:absolute;left:-34px;top:5px;
+  width:8px;height:8px;border-radius:50%;border:1px solid var(--gold);background:var(--bg);}
+.tl-yr{font-family:'Playfair Display',serif;font-size:12px;font-weight:700;
+  color:var(--gold);letter-spacing:2px;margin-bottom:4px;}
+.tl-t{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:5px;}
+.tl-b{font-size:13px;color:var(--mid);line-height:1.8;}
+
+/* ══════ FESTIVAL CALENDAR ══════ */
+.cal{display:flex;flex-direction:column;gap:2px;}
+.month-row{display:grid;grid-template-columns:80px 1fr;gap:16px;align-items:start;}
+.month-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);padding-top:14px;font-weight:500;}
+.month-events{display:flex;flex-direction:column;gap:2px;}
+.ev{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:12px 16px;border-left:3px solid var(--border);
+  background:var(--white);
+  transition:border-color .2s;cursor:default;
+}
+.ev:hover{border-left-color:var(--gold);}
+.ev-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:4px;}
+.ev-body{}
+.ev-name{font-size:14px;font-weight:600;color:var(--ink);}
+.ev-cat{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:1px;}
+.ev-desc{font-size:12px;color:var(--mid);line-height:1.7;margin-top:4px;}
+.ph{font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  border:1px solid var(--border);color:var(--muted);padding:2px 8px;
+  display:inline-block;margin-top:4px;}
+
+/* ══════ TOWN MAP SECTION ══════ */
+.map-container{
+  position:relative;background:#F0EBE3;
+  border:1px solid var(--border);
+  overflow:hidden;
+  aspect-ratio:16/9;
+  max-height:480px;
+}
+/* Simple Singapore island SVG map */
+.map-svg{width:100%;height:100%;}
+.town-card{
+  position:absolute;
+  background:var(--white);border:1px solid var(--border);
+  padding:8px 12px;min-width:130px;
+  transform:translate(-50%,-100%);
+  font-size:12px;line-height:1.5;
+  box-shadow:0 4px 16px rgba(0,0,0,.08);
+  pointer-events:none;
+  transition:opacity .2s;
+}
+.town-dot{
+  position:absolute;
+  width:14px;height:14px;border-radius:50%;
+  transform:translate(-50%,-50%);
+  cursor:pointer;
+  border:2px solid var(--white);
+  box-shadow:0 2px 8px rgba(0,0,0,.2);
+  transition:transform .2s;
+}
+.town-dot:hover{transform:translate(-50%,-50%) scale(1.3);}
+.town-label{
+  position:absolute;font-size:10px;font-weight:600;
+  letter-spacing:1px;text-transform:uppercase;
+  white-space:nowrap;transform:translateX(-50%);
+}
+
+/* Town cards layout */
+.town-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px;}
+.town-card-s{border:1px solid var(--border);background:var(--white);}
+.tc-head{padding:16px 18px 12px;border-bottom:1px solid var(--border);}
+.tc-name{font-size:16px;font-weight:700;color:var(--ink);}
+.tc-sub{font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:2px;}
+.tc-tag{display:inline-block;font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  padding:3px 10px;margin-top:6px;color:var(--white);}
+.tc-body{padding:14px 18px;}
+.tc-mrt{font-size:11px;color:var(--muted);margin-bottom:8px;}
+.tc-mrt span{color:var(--ink);font-weight:600;}
+.tc-highlights{display:flex;flex-direction:column;gap:4px;}
+.tc-hl{font-size:12px;color:var(--mid);display:flex;align-items:flex-start;gap:6px;}
+.tc-hl::before{content:'—';color:var(--border);flex-shrink:0;}
+
+/* ══════ FOOD SECTION ══════ */
+.food-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+.food-culture{border:1px solid var(--border);background:var(--white);}
+.fc-head{padding:16px;border-bottom:1px solid var(--border);}
+.fc-flag{font-size:24px;margin-bottom:8px;}
+.fc-name{font-size:14px;font-weight:700;color:var(--ink);}
+.fc-body{padding:14px 16px;}
+.food-item{padding:10px 0;border-bottom:1px solid var(--border);}
+.food-item:last-child{border-bottom:none;}
+.food-item-rank{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:3px;}
+.food-item-name{font-size:13px;font-weight:600;color:var(--ink);}
+.food-item-desc{font-size:11px;color:var(--muted);line-height:1.6;margin-top:2px;}
+
+/* ══════ PHRASE SECTION ══════ */
+.lang-tabs{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:32px;flex-wrap:wrap;}
+.lang-tab{
+  padding:10px 20px;font-size:12px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;
+  margin-bottom:-2px;transition:color .2s,border-color .2s;font-weight:500;
+  font-family:'DM Sans',sans-serif;border:none;background:none;
+}
+.lang-tab.active{color:var(--ink);border-bottom:2px solid var(--ink);}
+.lang-panel{display:none;}
+.lang-panel.active{display:block;}
+.phrase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.phrase-card{border:1px solid var(--border);background:var(--white);padding:18px;}
+.phrase-jp{font-size:13px;color:var(--muted);margin-bottom:6px;}
+.phrase-orig{font-size:17px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.phrase-kana{font-size:13px;color:var(--gold);font-weight:500;}
+.phrase-meaning{font-size:11px;color:var(--muted);margin-top:4px;}
+
+/* ══════ LEARN SECTION ══════ */
+.learn-item{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid var(--border);}
+.learn-item:last-child{border-bottom:none;}
+.learn-n{font-family:'Playfair Display',serif;font-size:38px;font-weight:900;
+  color:var(--border);line-height:1;flex-shrink:0;}
+.learn-t{font-size:15px;font-weight:600;color:#fff;margin-bottom:6px;}
+.learn-b{font-size:13px;color:rgba(255,255,255,.5);line-height:1.8;}
+
+/* ══════ IMG WRAP ══════ */
+.iw{position:relative;overflow:hidden;}
+.iw img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease;}
+.iw:hover img{transform:scale(1.04);}
+.iw-cap{position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(to top,rgba(28,28,28,.88) 0%,transparent 100%);
+  padding:18px 16px 12px;}
+.iw-cl{font-size:9px;letter-spacing:3px;color:rgba(184,130,30,.8);text-transform:uppercase;margin-bottom:3px;}
+.iw-cv{font-size:13px;color:rgba(255,255,255,.8);}
+
+/* ══════ PULL QUOTE ══════ */
+.pq{border-left:3px solid var(--gold);padding:18px 24px;background:rgba(184,130,30,.06);margin:24px 0;}
+.pq blockquote{font-family:'Playfair Display',serif;font-size:clamp(15px,2vw,20px);font-style:italic;color:var(--ink);line-height:1.6;}
+.pq cite{display:block;font-size:11px;color:var(--muted);margin-top:10px;font-style:normal;letter-spacing:2px;text-transform:uppercase;}
+
+/* ══════ FOOTER ══════ */
+footer{padding:clamp(52px,8vh,72px) clamp(20px,4vw,56px) 32px;background:var(--ink);}
+.ft-in{max-width:980px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:clamp(28px,4vw,56px);margin-bottom:44px;}
+.ft-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff;margin-bottom:10px;}
+.ft-logo em{font-style:normal;color:var(--gold);}
+.ft-desc{font-size:12px;color:rgba(255,255,255,.3);line-height:1.8;max-width:220px;}
+.ft-ct{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.ft-lnk{display:block;font-size:12px;color:rgba(255,255,255,.3);padding:5px 0;border-bottom:1px solid rgba(255,255,255,.05);cursor:pointer;transition:color .2s;}
+.ft-lnk:hover{color:#fff;}
+.ft-btm{max-width:980px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding-top:22px;border-top:1px solid rgba(255,255,255,.06);font-size:11px;color:rgba(255,255,255,.18);}
+
+/* ══════ BACK TO TOP ══════ */
+#btt{position:fixed;bottom:28px;right:28px;z-index:100;width:42px;height:42px;background:var(--ink);color:#fff;border:none;font-size:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s;}
+#btt.show{opacity:1;pointer-events:all;}
+
+/* ══════ RESPONSIVE ══════ */
+@media(max-width:1000px){
+  #hero{grid-template-columns:1fr;}
+  .hero-r{height:320px;}
+  .food-grid{grid-template-columns:1fr 1fr;}
+  .town-grid{grid-template-columns:1fr 1fr;}
+  .g2{grid-template-columns:1fr;}
+  .phrase-grid{grid-template-columns:1fr 1fr;}
+  .ft-in{grid-template-columns:1fr 1fr;gap:32px;}
+}
+@media(max-width:640px){
+  #dnav{display:none;}
+  #hbg{display:block;}
+  h1.ht{font-size:clamp(26px,8vw,40px);}
+  .g3{grid-template-columns:1fr;}
+  .g4{grid-template-columns:1fr 1fr;}
+  .food-grid{grid-template-columns:1fr;}
+  .town-grid{grid-template-columns:1fr;}
+  .phrase-grid{grid-template-columns:1fr;}
+  .month-row{grid-template-columns:60px 1fr;}
+  .ft-in{grid-template-columns:1fr;}
+  .ft-btm{flex-direction:column;gap:6px;text-align:center;}
+  #btt{bottom:18px;right:18px;}
+  .lang-tab{padding:8px 12px;font-size:10px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="logo">Singapore<em>Culture</em></div>
+  <nav id="dnav">
+    <button class="nv" onclick="go('s1')">多様性</button>
+    <button class="nv" onclick="go('s2')">年間イベント</button>
+    <button class="nv" onclick="go('s3')">タウン</button>
+    <button class="nv" onclick="go('s4')">フード</button>
+    <button class="nv" onclick="go('s5')">フレーズ</button>
+    <button class="nv" onclick="go('s6')">まとめ</button>
+  </nav>
+  <button id="hbg" onclick="toggleM()">☰</button>
+</header>
+<div id="sm">
+  <div class="sl" onclick="go('s1')">01 — 多様性の起源と政策</div>
+  <div class="sl" onclick="go('s2')">02 — 年間イベントカレンダー</div>
+  <div class="sl" onclick="go('s3')">03 — エスニックタウン</div>
+  <div class="sl" onclick="go('s4')">04 — 各国の代表料理</div>
+  <div class="sl" onclick="go('s5')">05 — 各国の挨拶フレーズ</div>
+  <div class="sl" onclick="go('s6')">06 — まとめ</div>
+</div>
+
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-l">
+    <div class="hero-ey f v">Singapore Cultural Diversity Guide</div>
+    <h1 class="ht f v d1">160以上の<br>国籍が共存する<br><em>多文化都市</em></h1>
+    <p class="hero-p f v d2">チャイナタウン、リトルインディア、カンポングラム——一国の中に複数の「国」が息づくシンガポール。食・祭り・言語・街並みから多様性の本質を読み解く。</p>
+    <div class="hero-pills f v d3">
+      <div class="pill"><div class="dot" style="background:var(--cn);"></div>中国系 74%</div>
+      <div class="pill"><div class="dot" style="background:var(--ml);"></div>マレー系 13%</div>
+      <div class="pill"><div class="dot" style="background:var(--in);"></div>インド系 9%</div>
+      <div class="pill"><div class="dot" style="background:var(--eu);"></div>その他 3.5%</div>
+    </div>
+  </div>
+  <div class="hero-r">
+    <img id="hi" src="https://images.unsplash.com/photo-1508780709619-79562169bc64?w=1200&q=80" alt="Singapore multicultural">
+    <div class="hero-badge">
+      <div class="hbl">公用語</div>
+      <div class="hbv">英語 / 中国語 / マレー語 / タミル語</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S1: 多様性の起源 ══ -->
+<section id="s1" class="sec">
+<div class="inner">
+  <div class="f"><div class="ch-lbl">Chapter 01</div></div>
+  <div class="f d1"><h2 class="ch-t">多様性の起源・変遷・<br>政策</h2></div>
+  <div class="f d2"><p class="ch-sub">Origins, History & Government Policies Behind Singapore's Diversity</p></div>
+  <div class="f d2"><div class="ch-rule"></div></div>
+
+  <div class="g2" style="margin-bottom:52px;">
+    <div>
+      <!-- Ethnicity bars -->
+      <h3 style="font-size:15px;font-weight:600;margin-bottom:20px;" class="f">居住者の民族構成（2025年）</h3>
+      <div class="eth-bar f">
+        <div class="eth-row">
+          <div class="eth-label">中国系</div>
+          <div class="eth-track"><div class="eth-fill" style="width:74%;background:var(--cn);"></div></div>
+          <div class="eth-val" style="color:var(--cn);">74.0%</div>
+        </div>
+        <div class="eth-row">
+          <div class="eth-label">マレー系</div>
+          <div class="eth-track"><div class="eth-fill" style="width:13%;background:var(--ml);"></div></div>
+          <div class="eth-val" style="color:var(--ml);">13.5%</div>
+        </div>
+        <div class="eth-row">
+          <div class="eth-label">インド系</div>
+          <div class="eth-track"><div class="eth-fill" style="width:9%;background:var(--in);"></div></div>
+          <div class="eth-val" style="color:var(--in);">9.0%</div>
+        </div>
+        <div class="eth-row">
+          <div class="eth-label">その他</div>
+          <div class="eth-track"><div class="eth-fill" style="width:3.5%;background:var(--eu);"></div></div>
+          <div class="eth-val" style="color:var(--eu);">3.5%</div>
+        </div>
+        <div class="eth-row">
+          <div class="eth-label" style="font-weight:600;color:var(--ink);">非居住者</div>
+          <div class="eth-track"><div class="eth-fill" style="width:31%;background:#bbb;"></div></div>
+          <div class="eth-val" style="color:var(--muted);">191万人</div>
+        </div>
+      </div>
+      <p style="font-size:11px;color:var(--muted);margin-top:10px;" class="f">出典: Singapore Department of Statistics 2025. 非居住者含む総人口約604万人。</p>
+
+      <div class="g4" style="margin-top:36px;">
+        <div class="stat f"><div class="stat-n">160<span class="stat-u">+</span></div><div class="stat-l">共存する国籍数</div></div>
+        <div class="stat g f d1"><div class="stat-n">4<span class="stat-u">言語</span></div><div class="stat-l">公用語<br>英・中・馬・泰</div></div>
+        <div class="stat f d2"><div class="stat-n">10<span class="stat-u">宗教</span></div><div class="stat-l">公認宗教数<br>世界最高水準</div></div>
+        <div class="stat g f d3"><div class="stat-n">1:6<span class="stat-u"></span></div><div class="stat-l">異民族間婚姻<br>（市民婚姻の約1/6）</div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="iw f" style="height:260px;margin-bottom:24px;">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&q=80" alt="Singapore diversity">
+        <div class="iw-cap"><div class="iw-cl">Multicultural Singapore</div><div class="iw-cv">多文化が共存する街並み</div></div>
+      </div>
+      <div class="pq f">
+        <blockquote>「私たちには奇跡を起こす以外に選択肢がなかった。」</blockquote>
+        <cite>— リー・クアンユー（初代首相）建国時の言葉</cite>
+      </div>
+      <p class="bp f">1819年にラッフルズが自由貿易港として開港して以来、中国南部・インド・マレー半島・アラビア半島から大量の移民が流入。英国植民地政府は民族ごとに居住区を設け、今日のチャイナタウン・リトルインディア・カンポングラムの原型が形成された。</p>
+    </div>
+  </div>
+
+  <!-- History timeline -->
+  <div class="g2">
+    <div>
+      <h3 style="font-size:15px;font-weight:600;margin-bottom:24px;" class="f">多様性の歴史</h3>
+      <div class="tl f">
+        <div class="tl-item"><div class="tl-yr">1819</div><div class="tl-t">自由貿易港としての開港</div><div class="tl-b">ラッフルズが英国東インド会社のために開港。中国・インド・マレー・アラブ商人が集まり始める。</div></div>
+        <div class="tl-item"><div class="tl-yr">1820s</div><div class="tl-t">民族居住区の設定</div><div class="tl-b">ラッフルズの都市計画により、チャイナタウン・インド人街・マレー人街・ヨーロッパ人街が区分される。現在の文化地区の原型。</div></div>
+        <div class="tl-item"><div class="tl-yr">1965</div><div class="tl-t">独立——「多民族国家」の選択</div><div class="tl-b">マレーシアから独立。人口の大多数が中国系でありながら、マレー語を国語に、英語を共通語に設定。「どの民族も第一市民」を宣言。</div></div>
+        <div class="tl-item"><div class="tl-yr">1989</div><div class="tl-t">Ethnic Integration Policy</div><div class="tl-b">HDB（公共住宅）に民族別居住割合を義務化。特定民族が集中する「エスニック・エンクレーブ化」を防ぎ、日常的な多民族接触を制度設計。</div></div>
+        <div class="tl-item"><div class="tl-yr">2021</div><div class="tl-t">CMIO制度の見直し議論</div><div class="tl-b">「中国・マレー・インド・その他」の4分類が現実の多様性を反映しないとの声が高まる。2010年より「ダブルバレル人種分類」を導入済み。</div></div>
+      </div>
+    </div>
+    <div>
+      <h3 style="font-size:15px;font-weight:600;margin-bottom:24px;" class="f">多様性を支える政策</h3>
+      <div style="display:flex;flex-direction:column;gap:12px;" class="f">
+        <div style="border:1px solid var(--border);padding:18px 16px;">
+          <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">住宅政策</div>
+          <div style="font-size:14px;font-weight:600;color:var(--ink);margin-bottom:6px;">Ethnic Integration Policy（EIP）</div>
+          <div style="font-size:13px;color:var(--mid);line-height:1.8;">HDBの各ブロック・団地に民族別の居住上限を設定。特定民族が固まって居住することを防ぎ、日常生活での多民族交流を強制的に設計する世界にも珍しい政策。</div>
+        </div>
+        <div style="border:1px solid var(--border);padding:18px 16px;">
+          <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">言語政策</div>
+          <div style="font-size:14px;font-weight:600;color:var(--ink);margin-bottom:6px;">バイリンガル教育制度</div>
+          <div style="font-size:13px;color:var(--mid);line-height:1.8;">全児童が英語（共通語）と民族ごとの母語（中国語・マレー語・タミル語）を必修として学ぶ。文化的ルーツを保ちながら経済的競争力も確保する二刀流。</div>
+        </div>
+        <div style="border:1px solid var(--border);padding:18px 16px;">
+          <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">宗教政策</div>
+          <div style="font-size:14px;font-weight:600;color:var(--ink);margin-bottom:6px;">Maintenance of Religious Harmony Act</div>
+          <div style="font-size:13px;color:var(--mid);line-height:1.8;">宗教間の調和を法律で保護し、宗教的扇動を厳しく規制。宗教間対話を促進する「Inter-Religious Organisation」が10の宗教を公式認定。</div>
+        </div>
+        <div style="border:1px solid var(--border);padding:18px 16px;">
+          <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">選挙制度</div>
+          <div style="font-size:14px;font-weight:600;color:var(--ink);margin-bottom:6px;">Group Representation Constituency（GRC）</div>
+          <div style="font-size:13px;color:var(--mid);line-height:1.8;">選挙区ごとに少数民族の議員を必ず含むチーム制選挙を採用。議会での民族代表性を制度的に保証する仕組み。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══ S2: 年間イベントカレンダー ══ -->
+<section id="s2" class="sec-alt">
+<div class="inner">
+  <div class="f"><div class="ch-lbl">Chapter 02</div></div>
+  <div class="f d1"><h2 class="ch-t">年間文化イベント<br>カレンダー</h2></div>
+  <div class="f d2"><p class="ch-sub">Annual Cultural Events — 12 Months of Celebration</p></div>
+  <div class="f d2"><div class="ch-rule"></div></div>
+
+  <div class="g2">
+    <div class="cal f">
+      <div class="month-row">
+        <div class="month-label">1月</div>
+        <div class="month-events">
+          <div class="ev">
+            <div class="ev-dot" style="background:var(--in);"></div>
+            <div class="ev-body">
+              <div class="ev-name">ポンガル（タイ・ポンガル）</div>
+              <div class="ev-cat">インド・タミル系 / 収穫祭</div>
+              <div class="ev-desc">太陽神スーリヤに感謝するタミルの伝統収穫祭。リトルインディアが民族衣装・踊り・屋台で賑わう。</div>
+            </div>
+          </div>
+          <div class="ev">
+            <div class="ev-dot" style="background:var(--in);"></div>
+            <div class="ev-body">
+              <div class="ev-name">タイプーサム</div>
+              <div class="ev-cat">ヒンドゥー教 / 公休日</div>
+              <div class="ev-desc">スブラマニヤム神への誓願を果たすヒンドゥー祭。カバディ（重さ40kgに及ぶ金属製の神輿）を担いで4.5kmを行進。スリ・スリニバサ・ペルマル寺院から出発。</div>
+              <div class="ph">公休日</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="month-row">
+        <div class="month-label">1〜2月</div>
+        <div class="month-events">
+          <div class="ev">
+            <div class="ev-dot" style="background:var(--cn);"></div>
+            <div class="ev-body">
+              <div class="ev-name">春節（旧正月・Chinese New Year）</div>
+              <div class="ev-cat">中国系 / 最重要祭事</div>
+              <div class="ev-desc">15日間の祝祭。チャイナタウンがライトアップされ、獅子舞・爆竹・紅包（ホンバオ）で賑わう。家族が集まり団欒料理を囲む年最大のイベント。</div>
+              <div class="ph">公休日2日</div>
+            </div>
+          </div>
+          <div class="ev">
+            <div class="ev-dot" style="background:var(--cn);"></div>
+            <div class="ev-body">
+              <div class="ev-name">チンゲイパレード</div>
+              <div class="ev-cat">多民族 / アジア最大の山車行列</div>
+              <div class="ev-desc">旧正月2週目の週末に開催。民族・国籍を超えたダンサー・アクロバット・花車が集結するアジア最大の山車パレード。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="month-row">
+        <div class="month-label">3〜4月</div>
+        <div class="month-events">
+          <div class="ev">
+            <div class="ev-dot" style="background:var(--ar);"></div>
+            <div class="ev-body">
+              <div class="ev-name">ラマダン＆ハリラヤ・プアサ</div>
+              <div class="ev-cat">イスラム教 / 公休日</div>
+              <div class="ev-desc">断食月ラマダン（約1ヶ月）の後に迎える祝祭。ゲイラン・セライ・バザールが夜の市場として賑わい、マレー料理が並ぶ。緑色のお年玉袋（ダイパック）を交換。</div>
+              <div class="ph">公休日</div>
+            </div>
+          </div>
+          <div class="ev">
+            <div class="ev-dot" style="background:var(--eu);"></div>
+            <div class="ev-body">
+              <div class="ev-name">グッドフライデー</div>
+              <div class="ev-cat">キリスト教 / 公休日</div>
+              <div class="ev-desc">キリスト教徒が多数住むシンガポール（人口の約18%）。国内各教会で礼拝が行われる。</div>
+              <div class="ph">公休日</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="month-row">
+        <div class="month-label">5月</div>
+        <div class="month-events">
+          <div class="ev">
+            <div class="ev-dot" style="background:var(--cn);"></div>
+            <div class="ev-body">
+              <div class="ev-name">ウェサック・デー（仏誕節）</div>
+              <div class="ev-cat">仏教 / 公休日</div>
+              <div class="ev-desc">釈迦の誕生・悟り・入滅を記念する仏教最重要祭日。各仏教寺院でロウソクの行列と瞑想が行われ、食べ物の無料配布も。</div>
+              <div class="ph">公休日</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cal f d1">
+      <div class="month-row">
+        <div class="month-label">6月</div>
+        <div class="month-events">
+          <div class="ev">
+            <div class="ev-dot" style="background:var(--ar);"></div>
+            <div class="ev-body">
+              <div class="ev-name">ハリラヤ・ハジ（クルバン祭）</div>
+              <div class="ev-cat">イスラム教 / 公休日</div>
+              <div class="ev-desc">イブラヒムの犠牲の精神を記念するイスラムの祭典。モスクで羊・ヤギの犠牲が行われ、肉は困窮者に配布。</div>
+              <div class="ph">公休日</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="month-row">
+        <div class="month-label">7〜8月</div>
+        <div class="month-events">
+          <div class="ev">
+            <div class="ev-dot" style="background:var(--cn);"></div>
+            <div class="ev-body">
+              <div class="ev-name">ハングリーゴースト・フェスティバル</div>
+              <div class="ev-cat">中国系・道教/仏教</div>
+              <div class="ev-desc">亡くなった先祖の霊が現世に戻ると信じられる「鬼節」。路上で紙銭を燃やし、仮設舞台で神功戯（opera）を演じる伝統が続く。</div>
+            </div>
+          </div>
+          <div class="ev">
+            <div class="ev-dot" style="background:var(--sg);"></div>
+            <div class="ev-body">
+              <div class="ev-name">ナショナル・デー（独立記念日）</div>
+              <div class="ev-cat">全民族 / 公休日</div>
+              <div class="ev-desc">8月9日。マリーナベイでの盛大なパレードと花火。国旗の赤と白を身につけ、多民族が一体となって国家への誇りを示す年最大の国民祭典。</div>
+              <div class="ph">公休日</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="month-row">
+        <div class="month-label">9〜10月</div>
+        <div class="month-events">
+          <div class="ev">
+            <div class="ev-dot" style="background:var(--cn);"></div>
+            <div class="ev-body">
+              <div class="ev-name">中秋節（ムーンケーキ祭）</div>
+              <div class="ev-cat">中国系</div>
+              <div class="ev-desc">ランタンを手に月見を楽しむ中国の伝統祭。チャイナタウンがランタンで飾られ、月餅（ムーンケーキ）が贈答品として交わされる。</div>
+            </div>
+          </div>
+          <div class="ev">
+            <div class="ev-dot" style="background:var(--in);"></div>
+            <div class="ev-body">
+              <div class="ev-name">ディパバリ（光の祭典）</div>
+              <div class="ev-cat">ヒンドゥー教 / 公休日</div>
+              <div class="ev-desc">「闇に対する光の勝利」を祝うインドの最大祭典。リトルインディアが数万のLEDで輝き、サリー姿の人々と屋台の香りで溢れる。</div>
+              <div class="ph">公休日</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="month-row">
+        <div class="month-label">12月</div>
+        <div class="month-events">
+          <div class="ev">
+            <div class="ev-dot" style="background:var(--eu);"></div>
+            <div class="ev-body">
+              <div class="ev-name">クリスマス</div>
+              <div class="ev-cat">多文化 / 公休日</div>
+              <div class="ev-desc">宗教を超えてシンガポール全土が彩られる年末最大の街のイベント。オーチャードロードが煌めくイルミネーションと各国料理で賑わう。</div>
+              <div class="ph">公休日</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══ S3: エスニックタウン ══ -->
+<section id="s3" class="sec">
+<div class="inner-w">
+  <div class="f"><div class="ch-lbl">Chapter 03</div></div>
+  <div class="f d1"><h2 class="ch-t">エスニックタウン<br>案内</h2></div>
+  <div class="f d2"><p class="ch-sub">Cultural Districts — Singapore's Ethnic Neighbourhoods</p></div>
+  <div class="f d2"><div class="ch-rule"></div></div>
+
+  <!-- Map visual (SVG) -->
+  <div class="f" style="border:1px solid var(--border);background:#EDE8E0;padding:32px;margin-bottom:36px;position:relative;">
+    <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:20px;font-weight:500;">📍 シンガポール 文化地区マップ</div>
+    <!-- Simple dot map of Singapore -->
+    <svg viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:300px;">
+      <!-- Singapore island silhouette (simplified) -->
+      <path d="M 60,100 Q 80,70 120,65 Q 160,58 220,55 Q 290,50 360,58 Q 420,65 470,75 Q 510,85 540,110 Q 555,130 550,155 Q 545,175 520,185 Q 490,195 460,200 Q 420,205 380,208 Q 340,210 300,205 Q 260,200 220,195 Q 180,190 150,185 Q 110,175 85,162 Q 60,148 55,130 Z"
+            fill="#D6CFC4" stroke="#C4BAB0" stroke-width="2"/>
+      <!-- Water -->
+      <text x="30" y="250" font-size="10" fill="#8B9BB4" font-family="DM Sans,sans-serif" font-style="italic">Strait of Singapore</text>
+      <text x="200" y="35" font-size="10" fill="#8B9BB4" font-family="DM Sans,sans-serif" font-style="italic">Johor Strait (Malaysia)</text>
+
+      <!-- Chinatown dot -->
+      <circle cx="260" cy="148" r="10" fill="#C0192A" stroke="white" stroke-width="2" opacity=".9"/>
+      <text x="260" y="172" font-size="9" fill="#C0192A" font-weight="bold" font-family="DM Sans,sans-serif" text-anchor="middle">CHINATOWN</text>
+
+      <!-- Little India dot -->
+      <circle cx="310" cy="110" r="10" fill="#FF6B00" stroke="white" stroke-width="2" opacity=".9"/>
+      <text x="310" y="96" font-size="9" fill="#FF6B00" font-weight="bold" font-family="DM Sans,sans-serif" text-anchor="middle">LITTLE INDIA</text>
+
+      <!-- Kampong Glam dot -->
+      <circle cx="355" cy="118" r="10" fill="#1A3A5C" stroke="white" stroke-width="2" opacity=".9"/>
+      <text x="390" y="114" font-size="9" fill="#1A3A5C" font-weight="bold" font-family="DM Sans,sans-serif" text-anchor="start">KAMPONG GLAM</text>
+
+      <!-- Tiong Bahru dot -->
+      <circle cx="220" cy="155" r="8" fill="#5B4EC8" stroke="white" stroke-width="2" opacity=".9"/>
+      <text x="175" y="162" font-size="8" fill="#5B4EC8" font-family="DM Sans,sans-serif" text-anchor="end">TIONG BAHRU</text>
+
+      <!-- Marina Bay area -->
+      <circle cx="310" cy="168" r="7" fill="#B8821E" stroke="white" stroke-width="2" opacity=".9"/>
+      <text x="310" y="190" font-size="8" fill="#B8821E" font-family="DM Sans,sans-serif" text-anchor="middle">MARINA BAY</text>
+
+      <!-- Orchard -->
+      <circle cx="240" cy="118" r="7" fill="#006B3C" stroke="white" stroke-width="2" opacity=".9"/>
+      <text x="205" y="115" font-size="8" fill="#006B3C" font-family="DM Sans,sans-serif" text-anchor="end">ORCHARD</text>
+
+      <!-- Legend -->
+      <rect x="10" y="10" width="140" height="80" fill="rgba(255,255,255,.8)" rx="4"/>
+      <text x="18" y="26" font-size="10" fill="#555" font-family="DM Sans,sans-serif" font-weight="600">文化地区</text>
+      <circle cx="22" cy="38" r="5" fill="#C0192A"/>
+      <text x="32" y="42" font-size="9" fill="#555" font-family="DM Sans,sans-serif">チャイナタウン</text>
+      <circle cx="22" cy="52" r="5" fill="#FF6B00"/>
+      <text x="32" y="56" font-size="9" fill="#555" font-family="DM Sans,sans-serif">リトルインディア</text>
+      <circle cx="22" cy="66" r="5" fill="#1A3A5C"/>
+      <text x="32" y="70" font-size="9" fill="#555" font-family="DM Sans,sans-serif">カンポングラム</text>
+      <circle cx="22" cy="80" r="5" fill="#5B4EC8"/>
+      <text x="32" y="84" font-size="9" fill="#555" font-family="DM Sans,sans-serif">その他</text>
+    </svg>
+  </div>
+
+  <!-- Town detail cards -->
+  <div class="town-grid f">
+    <!-- Chinatown -->
+    <div class="town-card-s">
+      <div class="tc-head" style="border-top:3px solid var(--cn);">
+        <div style="font-size:22px;margin-bottom:6px;">🏮</div>
+        <div class="tc-name">チャイナタウン</div>
+        <div class="tc-sub">Chinatown / 牛車水</div>
+        <div class="tc-tag" style="background:var(--cn);">中国系</div>
+      </div>
+      <div class="tc-body">
+        <div class="tc-mrt">🚇 MRT: <span>Chinatown駅（NE・DT線）</span></div>
+        <div class="tc-highlights">
+          <div class="tc-hl">スリ・マリアンマン・ヒンドゥー寺院（1827年創建）</div>
+          <div class="tc-hl">仏牙寺龍華院（巨大な仏歯を祀る）</div>
+          <div class="tc-hl">チャイナタウン・コンプレックス（旬のホーカー）</div>
+          <div class="tc-hl">パゴダ・ストリートの屋台市場</div>
+          <div class="tc-hl">旧正月はアジア最大の屋外デコレーション</div>
+          <div class="tc-hl">マクスウェル・フードセンター（ミシュランBib Gourmand）</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Little India -->
+    <div class="town-card-s">
+      <div class="tc-head" style="border-top:3px solid var(--in);">
+        <div style="font-size:22px;margin-bottom:6px;">🕌</div>
+        <div class="tc-name">リトルインディア</div>
+        <div class="tc-sub">Little India / 小印度</div>
+        <div class="tc-tag" style="background:var(--in);">インド系</div>
+      </div>
+      <div class="tc-body">
+        <div class="tc-mrt">🚇 MRT: <span>Little India駅（NE・DT線）</span></div>
+        <div class="tc-highlights">
+          <div class="tc-hl">スリ・ヴィーラマカリアンマン寺院（美しい彫刻）</div>
+          <div class="tc-hl">テッカ・センター（インド食材・ウェットマーケット）</div>
+          <div class="tc-hl">インド人ヘリテージセンター（歴史博物館）</div>
+          <div class="tc-hl">セランゴーン・ロードの花輪・香辛料店</div>
+          <div class="tc-hl">ムスタファ・センター（24時間スーパー）</div>
+          <div class="tc-hl">ディパバリ時期は幻想的なイルミネーション</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kampong Glam -->
+    <div class="town-card-s">
+      <div class="tc-head" style="border-top:3px solid var(--ar);">
+        <div style="font-size:22px;margin-bottom:6px;">🕌</div>
+        <div class="tc-name">カンポングラム</div>
+        <div class="tc-sub">Kampong Glam / Arab Street</div>
+        <div class="tc-tag" style="background:var(--ar);">マレー・アラブ系</div>
+      </div>
+      <div class="tc-body">
+        <div class="tc-mrt">🚇 MRT: <span>Bugis駅（EW・DT線）</span></div>
+        <div class="tc-highlights">
+          <div class="tc-hl">スルタン・モスク（シンガポール最大のモスク）</div>
+          <div class="tc-hl">マレー・ヘリテージセンター（旧スルタン宮殿）</div>
+          <div class="tc-hl">ハジ・レーン（壁画・ヴィンテージ・独立系ブランド）</div>
+          <div class="tc-hl">アラブ・ストリート（ペルシャ絨毯・手工芸品）</div>
+          <div class="tc-hl">中東料理・カフェ・シーシャ（水タバコ）文化</div>
+          <div class="tc-hl">ラマダン中は夜の屋台市場が最高潮</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tiong Bahru -->
+    <div class="town-card-s">
+      <div class="tc-head" style="border-top:3px solid var(--eu);">
+        <div style="font-size:22px;margin-bottom:6px;">🏛️</div>
+        <div class="tc-name">ティオン・バル</div>
+        <div class="tc-sub">Tiong Bahru</div>
+        <div class="tc-tag" style="background:var(--eu);">多民族・アートシーン</div>
+      </div>
+      <div class="tc-body">
+        <div class="tc-mrt">🚇 MRT: <span>Tiong Bahru駅（EW線）</span></div>
+        <div class="tc-highlights">
+          <div class="tc-hl">1930年代アール・デコ建築が残るシンガポール最古の住宅区</div>
+          <div class="tc-hl">独立系書店・カフェ・ベーカリーが集まるおしゃれ地区</div>
+          <div class="tc-hl">ティオン・バル・マーケット（朝食の聖地）</div>
+          <div class="tc-hl">インスタ映えする壁画とヒップスターカルチャー</div>
+          <div class="tc-hl">欧米駐在員とシンガポーリアンが共存する多文化エリア</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Holland Village -->
+    <div class="town-card-s">
+      <div class="tc-head" style="border-top:3px solid #2D7D46;">
+        <div style="font-size:22px;margin-bottom:6px;">🌍</div>
+        <div class="tc-name">ホーランド・ビレッジ</div>
+        <div class="tc-sub">Holland Village</div>
+        <div class="tc-tag" style="background:#2D7D46;">欧米系エクスパット</div>
+      </div>
+      <div class="tc-body">
+        <div class="tc-mrt">🚇 MRT: <span>Holland Village駅（CC線）</span></div>
+        <div class="tc-highlights">
+          <div class="tc-hl">欧米からのエクスパットが多く住む「外国人村」</div>
+          <div class="tc-hl">各国料理レストラン・バーが集結</div>
+          <div class="tc-hl">オランダ・ドゥッチ文化の名残が感じられる住宅地</div>
+          <div class="tc-hl">ウィークエンドマーケットとアート&クラフト市</div>
+          <div class="tc-hl">日本・韓国・欧米料理が揃うグルメストリート</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Geylang -->
+    <div class="town-card-s">
+      <div class="tc-head" style="border-top:3px solid #8B6914;">
+        <div style="font-size:22px;margin-bottom:6px;">🌃</div>
+        <div class="tc-name">ゲイラン</div>
+        <div class="tc-sub">Geylang / Haig Road</div>
+        <div class="tc-tag" style="background:#8B6914;">リアルなシンガポール</div>
+      </div>
+      <div class="tc-body">
+        <div class="tc-mrt">🚇 MRT: <span>Aljunied駅（EW線）</span></div>
+        <div class="tc-highlights">
+          <div class="tc-hl">マレー系・インドネシア系文化の本拠地エリア</div>
+          <div class="tc-hl">ハリラヤ・バザール（ラマダン中の最大屋台市）</div>
+          <div class="tc-hl">深夜まで営業する本格ドリアン屋台</div>
+          <div class="tc-hl">フカヒレ・海鮮料理・ペラナカン料理の名店多数</div>
+          <div class="tc-hl">「本物のシンガポール」を感じる多民族雑居地帯</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══ S4: 各国料理 ══ -->
+<section id="s4" class="sec-alt">
+<div class="inner-w">
+  <div class="f"><div class="ch-lbl">Chapter 04</div></div>
+  <div class="f d1"><h2 class="ch-t">各文化の代表料理<br>Top 3</h2></div>
+  <div class="f d2"><p class="ch-sub">Top 3 Dishes by Culture — Food as Cultural Heritage</p></div>
+  <div class="f d2"><div class="ch-rule"></div></div>
+
+  <div class="food-grid f">
+    <!-- Singapore -->
+    <div class="food-culture">
+      <div class="fc-head" style="border-top:3px solid var(--sg);">
+        <div class="fc-flag">🦁</div>
+        <div class="fc-name">シンガポール料理</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">多文化融合の独自料理</div>
+      </div>
+      <div class="fc-body">
+        <div class="food-item">
+          <div class="food-item-rank">No.1</div>
+          <div class="food-item-name">ハイナニーズ・チキンライス</div>
+          <div class="food-item-desc">海南島移民のレシピが進化。茹で鶏と鶏脂で炊いた香り米。国民食。</div>
+        </div>
+        <div class="food-item">
+          <div class="food-item-rank">No.2</div>
+          <div class="food-item-name">チリクラブ</div>
+          <div class="food-item-desc">甘辛トマトソースで炒めた泥蟹。饅頭でソースをすくう。国民海鮮。</div>
+        </div>
+        <div class="food-item">
+          <div class="food-item-rank">No.3</div>
+          <div class="food-item-name">ラクサ</div>
+          <div class="food-item-desc">ニョニャ（プラナカン）文化の象徴。ココナッツミルクカレースープ麺。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chinese -->
+    <div class="food-culture">
+      <div class="fc-head" style="border-top:3px solid var(--cn);">
+        <div class="fc-flag">🇨🇳</div>
+        <div class="fc-name">中国系料理</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">福建・潮州・広東料理</div>
+      </div>
+      <div class="fc-body">
+        <div class="food-item">
+          <div class="food-item-rank">No.1</div>
+          <div class="food-item-name">チャークウェイティオ</div>
+          <div class="food-item-desc">潮州系の炒め米麺。血蛤・海老・ラードで炒める。ホーカーの定番。</div>
+        </div>
+        <div class="food-item">
+          <div class="food-item-rank">No.2</div>
+          <div class="food-item-name">バクテー（肉骨茶）</div>
+          <div class="food-item-desc">豚スペアリブを漢方スープで煮込んだ福建系料理。朝食の定番。</div>
+        </div>
+        <div class="food-item">
+          <div class="food-item-rank">No.3</div>
+          <div class="food-item-name">ホッケンミー</div>
+          <div class="food-item-desc">エビ出汁で煮た太麺と米麺。福建移民が生んだシンガポール独自の変化形。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Malay -->
+    <div class="food-culture">
+      <div class="fc-head" style="border-top:3px solid var(--ml);">
+        <div class="fc-flag">🇲🇾</div>
+        <div class="fc-name">マレー料理</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">ハラール・スパイス文化</div>
+      </div>
+      <div class="fc-body">
+        <div class="food-item">
+          <div class="food-item-rank">No.1</div>
+          <div class="food-item-name">ナシレマ</div>
+          <div class="food-item-desc">ヤシミルクで炊いた香り飯。サンバル・アンチョビ・ピーナッツ添え。</div>
+        </div>
+        <div class="food-item">
+          <div class="food-item-rank">No.2</div>
+          <div class="food-item-name">サテー</div>
+          <div class="food-item-desc">香辛料漬けの串焼き肉。ピーナッツソースで食べる。Lau Pa Satが有名。</div>
+        </div>
+        <div class="food-item">
+          <div class="food-item-rank">No.3</div>
+          <div class="food-item-name">レンダン</div>
+          <div class="food-item-desc">牛肉や鶏肉をスパイスとココナッツミルクで長時間煮詰めたカレー。ハリラヤ定番。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Indian -->
+    <div class="food-culture">
+      <div class="fc-head" style="border-top:3px solid var(--in);">
+        <div class="fc-flag">🇮🇳</div>
+        <div class="fc-name">インド料理</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">南インド・タミル系中心</div>
+      </div>
+      <div class="fc-body">
+        <div class="food-item">
+          <div class="food-item-rank">No.1</div>
+          <div class="food-item-name">ロティプラタ</div>
+          <div class="food-item-desc">薄焼きパン。外はカリカリ、中はもちもち。フィッシュカレーに浸して食べる。</div>
+        </div>
+        <div class="food-item">
+          <div class="food-item-rank">No.2</div>
+          <div class="food-item-name">フィッシュヘッドカレー</div>
+          <div class="food-item-desc">インド×中国文化の融合料理。魚の頭をスパイスカレーで煮込む名物。</div>
+        </div>
+        <div class="food-item">
+          <div class="food-item-rank">No.3</div>
+          <div class="food-item-name">ビリヤニ</div>
+          <div class="food-item-desc">スパイスご飯に羊・鶏・野菜を乗せたご馳走料理。リトルインディアの各店で食べられる。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Eurasian / Other -->
+    <div class="food-culture">
+      <div class="fc-head" style="border-top:3px solid var(--eu);">
+        <div class="fc-flag">🌏</div>
+        <div class="fc-name">プラナカン・その他</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">ペラナカン（ニョニャ）文化</div>
+      </div>
+      <div class="fc-body">
+        <div class="food-item">
+          <div class="food-item-rank">No.1</div>
+          <div class="food-item-name">ニョニャ・ラクサ</div>
+          <div class="food-item-desc">中国×マレー融合のプラナカン独自スープ。海老・豆腐・もやし入り。</div>
+        </div>
+        <div class="food-item">
+          <div class="food-item-rank">No.2</div>
+          <div class="food-item-name">アヤム・ブアカルアック</div>
+          <div class="food-item-desc">インドネシア産ブアカルアックナッツで煮た鶏料理。プラナカンの特別料理。</div>
+        </div>
+        <div class="food-item">
+          <div class="food-item-rank">No.3</div>
+          <div class="food-item-name">クエ（伝統菓子）</div>
+          <div class="food-item-desc">米粉・ヤシ砂糖・ヤシミルクで作るカラフルな伝統餅菓子。茶話会の定番。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══ S5: 言語・フレーズ ══ -->
+<section id="s5" class="sec">
+<div class="inner">
+  <div class="f"><div class="ch-lbl">Chapter 05</div></div>
+  <div class="f d1"><h2 class="ch-t">各言語の役立つ<br>フレーズ集</h2></div>
+  <div class="f d2"><p class="ch-sub">Essential Phrases — Greetings in Singapore's Languages</p></div>
+  <div class="f d2"><div class="ch-rule"></div></div>
+
+  <div class="lang-tabs f">
+    <button class="lang-tab active" onclick="switchLang(this,'en')">🇸🇬 英語</button>
+    <button class="lang-tab" onclick="switchLang(this,'zh')">🇨🇳 中国語</button>
+    <button class="lang-tab" onclick="switchLang(this,'ms')">🇲🇾 マレー語</button>
+    <button class="lang-tab" onclick="switchLang(this,'ta')">🇮🇳 タミル語</button>
+    <button class="lang-tab" onclick="switchLang(this,'sg')">🦁 シングリッシュ</button>
+  </div>
+
+  <!-- English -->
+  <div class="lang-panel active" id="lp-en">
+    <div style="background:rgba(184,130,30,.06);border-left:3px solid var(--gold);padding:12px 20px;margin-bottom:24px;font-size:13px;color:var(--mid);">英語はシンガポールの公用語・ビジネス語。ただしシンガポール訛りが強く、独特の語尾「lah」「lor」「leh」が加わる。</div>
+    <div class="phrase-grid">
+      <div class="phrase-card"><div class="phrase-jp">こんにちは</div><div class="phrase-orig">Hello / Hi</div><div class="phrase-kana">ハロー / ハイ</div></div>
+      <div class="phrase-card"><div class="phrase-jp">ありがとう</div><div class="phrase-orig">Thank you</div><div class="phrase-kana">サンキュー</div></div>
+      <div class="phrase-card"><div class="phrase-jp">どういたしまして</div><div class="phrase-orig">You're welcome</div><div class="phrase-kana">ユーア ウェルカム</div></div>
+      <div class="phrase-card"><div class="phrase-jp">おいしい！</div><div class="phrase-orig">Delicious!</div><div class="phrase-kana">デリシャス！</div></div>
+      <div class="phrase-card"><div class="phrase-jp">いくらですか？</div><div class="phrase-orig">How much is it?</div><div class="phrase-kana">ハウ マッチ イズ イット？</div></div>
+      <div class="phrase-card"><div class="phrase-jp">すみません</div><div class="phrase-orig">Excuse me</div><div class="phrase-kana">エクスキューズ ミー</div></div>
+    </div>
+  </div>
+
+  <!-- Chinese Mandarin -->
+  <div class="lang-panel" id="lp-zh">
+    <div style="background:rgba(192,25,42,.06);border-left:3px solid var(--cn);padding:12px 20px;margin-bottom:24px;font-size:13px;color:var(--mid);">中国系シンガポーリアンは主に北京語（普通話）と各方言（福建語・潮州語・広東語）を話す。北京語が通じれば多くの場面でOK。</div>
+    <div class="phrase-grid">
+      <div class="phrase-card"><div class="phrase-jp">こんにちは</div><div class="phrase-orig">你好 (Nǐ hǎo)</div><div class="phrase-kana">ニーハオ</div></div>
+      <div class="phrase-card"><div class="phrase-jp">ありがとう</div><div class="phrase-orig">谢谢 (Xiè xiè)</div><div class="phrase-kana">シェーシェー</div></div>
+      <div class="phrase-card"><div class="phrase-jp">どういたしまして</div><div class="phrase-orig">不客气 (Bù kèqi)</div><div class="phrase-kana">ブー クーチー</div></div>
+      <div class="phrase-card"><div class="phrase-jp">おいしい！</div><div class="phrase-orig">很好吃！(Hěn hǎo chī)</div><div class="phrase-kana">ヘン ハオ チー！</div></div>
+      <div class="phrase-card"><div class="phrase-jp">いくらですか？</div><div class="phrase-orig">多少钱？(Duō shǎo qián)</div><div class="phrase-kana">ドゥオ シャオ チェン？</div></div>
+      <div class="phrase-card"><div class="phrase-jp">新年おめでとう</div><div class="phrase-orig">新年快乐！(Xīn nián kuài lè)</div><div class="phrase-kana">シン ニェン クアイ ラー！</div></div>
+      <div class="phrase-card"><div class="phrase-jp">ご縁がありますように（旧正月）</div><div class="phrase-orig">恭喜发财！(Gōng xǐ fā cái)</div><div class="phrase-kana">ゴン シー ファー ツァイ！</div></div>
+      <div class="phrase-card"><div class="phrase-jp">いただきます（福建語）</div><div class="phrase-orig">食饱未？(Chia bah buay)</div><div class="phrase-kana">チャ バー ブエ？</div><div class="phrase-meaning">「もう食べた？」が挨拶になる福建語文化</div></div>
+      <div class="phrase-card"><div class="phrase-jp">乾杯！</div><div class="phrase-orig">干杯！(Gān bēi)</div><div class="phrase-kana">ガン ベイ！</div></div>
+    </div>
+  </div>
+
+  <!-- Malay -->
+  <div class="lang-panel" id="lp-ms">
+    <div style="background:rgba(0,107,60,.06);border-left:3px solid var(--ml);padding:12px 20px;margin-bottom:24px;font-size:13px;color:var(--mid);">マレー語はシンガポールの国語。国歌もマレー語で歌われる。隣国マレーシア・インドネシアでも通じる実用的な言語。</div>
+    <div class="phrase-grid">
+      <div class="phrase-card"><div class="phrase-jp">こんにちは</div><div class="phrase-orig">Selamat datang</div><div class="phrase-kana">スラマット ダタン</div><div class="phrase-meaning">「ようこそ」の意味</div></div>
+      <div class="phrase-card"><div class="phrase-jp">こんにちは（イスラム）</div><div class="phrase-orig">Assalamualaikum</div><div class="phrase-kana">アッサラームアライクム</div><div class="phrase-meaning">「あなたに平和を」</div></div>
+      <div class="phrase-card"><div class="phrase-jp">ありがとう</div><div class="phrase-orig">Terima kasih</div><div class="phrase-kana">テリマ カシ</div></div>
+      <div class="phrase-card"><div class="phrase-jp">どういたしまして</div><div class="phrase-orig">Sama sama</div><div class="phrase-kana">サマ サマ</div></div>
+      <div class="phrase-card"><div class="phrase-jp">おいしい！</div><div class="phrase-orig">Sedap!</div><div class="phrase-kana">スダップ！</div></div>
+      <div class="phrase-card"><div class="phrase-jp">いくらですか？</div><div class="phrase-orig">Berapa harganya?</div><div class="phrase-kana">ブラパ ハルガニャ？</div></div>
+      <div class="phrase-card"><div class="phrase-jp">ラマダン明けおめでとう</div><div class="phrase-orig">Selamat Hari Raya</div><div class="phrase-kana">スラマット ハリ ラヤ</div></div>
+      <div class="phrase-card"><div class="phrase-jp">すみません</div><div class="phrase-orig">Maaf</div><div class="phrase-kana">マーアフ</div></div>
+      <div class="phrase-card"><div class="phrase-jp">また会いましょう</div><div class="phrase-orig">Jumpa lagi</div><div class="phrase-kana">ジュンパ ラギ</div></div>
+    </div>
+  </div>
+
+  <!-- Tamil -->
+  <div class="lang-panel" id="lp-ta">
+    <div style="background:rgba(255,107,0,.06);border-left:3px solid var(--in);padding:12px 20px;margin-bottom:24px;font-size:13px;color:var(--mid);">タミル語はシンガポールの公用語の一つで、南インド・スリランカ系コミュニティが使用。MRTの案内放送でも流れる。</div>
+    <div class="phrase-grid">
+      <div class="phrase-card"><div class="phrase-jp">こんにちは</div><div class="phrase-orig">வணக்கம் (Vaṇakkam)</div><div class="phrase-kana">ワナッカン</div><div class="phrase-meaning">最も重要な挨拶</div></div>
+      <div class="phrase-card"><div class="phrase-jp">ありがとう</div><div class="phrase-orig">நன்றி (Naṉṟi)</div><div class="phrase-kana">ナンリ</div></div>
+      <div class="phrase-card"><div class="phrase-jp">どういたしまして</div><div class="phrase-orig">பரவாயில்லை (Paravāyillai)</div><div class="phrase-kana">パラヴァイッライ</div></div>
+      <div class="phrase-card"><div class="phrase-jp">おいしい！</div><div class="phrase-orig">ருசியாக இருக்கிறது (Ruciyāka)</div><div class="phrase-kana">ルシヤーカ</div></div>
+      <div class="phrase-card"><div class="phrase-jp">おめでとう（ディパバリ）</div><div class="phrase-orig">தீபாவளி வாழ்த்துக்கள்</div><div class="phrase-kana">ディーパヴァリ ヴァーッツッカル</div></div>
+      <div class="phrase-card"><div class="phrase-jp">はい / いいえ</div><div class="phrase-orig">ஆம் / இல்லை (Ām / Illai)</div><div class="phrase-kana">アーム / イッライ</div></div>
+    </div>
+  </div>
+
+  <!-- Singlish -->
+  <div class="lang-panel" id="lp-sg">
+    <div style="background:rgba(184,130,30,.06);border-left:3px solid var(--gold);padding:12px 20px;margin-bottom:24px;font-size:13px;color:var(--mid);">シングリッシュ（Singlish）は英語・中国語方言・マレー語・タミル語が混ざったシンガポール独自のクレオール語。政府は標準英語を推奨するが、市民の日常会話ではシングリッシュが生き続けている。</div>
+    <div class="phrase-grid">
+      <div class="phrase-card"><div class="phrase-jp">「そうだよ！」「そうでしょ！」</div><div class="phrase-orig">Can lah!</div><div class="phrase-kana">キャン ラー！</div><div class="phrase-meaning">「lah」は語尾に付く強調語。感情を込める。</div></div>
+      <div class="phrase-card"><div class="phrase-jp">食べた？（挨拶代わり）</div><div class="phrase-orig">Eat already or not?</div><div class="phrase-kana">イート オールレディ オア ノット？</div><div class="phrase-meaning">食べることへの関心が挨拶になる文化</div></div>
+      <div class="phrase-card"><div class="phrase-jp">大丈夫？いいの？</div><div class="phrase-orig">Got or not?</div><div class="phrase-kana">ガット オア ノット？</div><div class="phrase-meaning">「have / don't have」のシングリッシュ版</div></div>
+      <div class="phrase-card"><div class="phrase-jp">行きましょう！</div><div class="phrase-orig">Let's go lah</div><div class="phrase-kana">レッツ ゴー ラー</div></div>
+      <div class="phrase-card"><div class="phrase-jp">おいしい！（福建語由来）</div><div class="phrase-orig">Shiok!</div><div class="phrase-kana">シオック！</div><div class="phrase-meaning">最高！気持ちいい！うまい！万能な感嘆詞</div></div>
+      <div class="phrase-card"><div class="phrase-jp">どうして？ なんで？</div><div class="phrase-orig">Why like that one?</div><div class="phrase-kana">ワイ ライク ダット ワン？</div></div>
+      <div class="phrase-card"><div class="phrase-jp">席を確保する（文化語）</div><div class="phrase-orig">Chope!</div><div class="phrase-kana">チョップ！</div><div class="phrase-meaning">ティッシュを置いて席を取る独自文化</div></div>
+      <div class="phrase-card"><div class="phrase-jp">わかった、了解</div><div class="phrase-orig">OK lor</div><div class="phrase-kana">オーケー ロー</div><div class="phrase-meaning">「lor」は軽い諦め・受け入れのニュアンス</div></div>
+      <div class="phrase-card"><div class="phrase-jp">すごい！本当に！</div><div class="phrase-orig">Very the..!</div><div class="phrase-kana">ベリー ザ...！</div><div class="phrase-meaning">「Very the nice!」=すごくいい！</div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══ S6: まとめ ══ -->
+<section id="s6" class="sec-dark">
+<div class="inner">
+  <div class="f"><div class="ch-lbl" style="color:rgba(184,130,30,.8);">Chapter 06</div></div>
+  <div class="f d1"><h2 class="ch-t wh">シンガポールの多様性から<br>学べること</h2></div>
+  <div class="f d2"><p class="ch-sub wh">Key Lessons — What Singapore's Cultural Diversity Teaches Us</p></div>
+  <div class="f d2"><div class="ch-rule wh"></div></div>
+
+  <div class="g2">
+    <div>
+      <div class="learn-item f">
+        <div class="learn-n">01</div>
+        <div><div class="learn-t">「強制的な共存」が自然な調和を生む</div><div class="learn-b">民族別住居割合の義務化・バイリンガル教育・グループ選挙区制など、多文化共存は「放っておけば自然に実現する」ものではない。シンガポールは政策として多様性を設計し、義務化することで日常的な多民族接触を作り出した。意図的な設計が本物の調和を生んだ。</div></div>
+      </div>
+      <div class="learn-item f d1">
+        <div class="learn-n">02</div>
+        <div><div class="learn-t">共通語（英語）が「差別されない土俵」を作る</div><div class="learn-b">どの民族も母語ではない英語を共通語にした選択は天才的だった。中国系が有利にならず、マレー系も不利にならない「中立言語」が経済活動・行政・教育の土台になることで、民族間の競争を緩和した。言語選択が社会設計の根幹だった。</div></div>
+      </div>
+      <div class="learn-item f d2">
+        <div class="learn-n">03</div>
+        <div><div class="learn-t">祭りが「社会的接着剤」として機能する</div><div class="learn-b">旧正月・ハリラヤ・ディパバリ・クリスマスが全て公休日であることは、「他の民族の祝い事を一緒に休む」ことを意味する。実際、シンガポーリアンは他民族の家族や友人の祝いに参加する「Open House」文化が根付いており、祭りが宗教・民族の壁を超える社交の場になっている。</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="learn-item f">
+        <div class="learn-n">04</div>
+        <div><div class="learn-t">多様性は「食の豊かさ」で日常化される</div><div class="learn-b">チキンライスの隣にロティプラタ、さらにビリヤニとチャークウェイティオが並ぶホーカーセンター。毎日の食事の選択が、知らず知らずのうちに他民族の文化への親しみを育てる。シンガポールの多様性は観光資源としてではなく、日常の食事として生きている。</div></div>
+      </div>
+      <div class="learn-item f d1">
+        <div class="learn-n">05</div>
+        <div><div class="learn-t">「小さな国」ゆえに多様性が生存戦略になった</div><div class="learn-b">天然資源も農地も広大な領土もない670km²の島国にとって、多様なバックグラウンドを持つ人材が集まることは唯一の競争優位だった。インド系のITエンジニア、中国系の金融専門家、マレー系の地域精通者——多民族の能力を束ねた「小さな世界のコレクション」が、シンガポールの経済成長を支えた。</div></div>
+      </div>
+      <div class="learn-item f d2">
+        <div class="learn-n">06</div>
+        <div><div class="learn-t">異文化への「好奇心」と「敬意」が土台</div><div class="learn-b">「食べた？」が挨拶になる文化、他民族の祭りに招かれたら喜んで参加する文化、シングリッシュという誰のものでもない「共有語」を生み出す創造性——シンガポーリアンの多文化適応力の根底には、異なるものへの純粋な好奇心と、互いの文化への深い敬意がある。それは法律ではなく、日常の積み重ねで育まれたものだ。</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- closing quote -->
+  <div style="border-left:3px solid var(--gold);padding:20px 28px;background:rgba(184,130,30,.06);margin-top:52px;" class="f">
+    <blockquote style="font-family:'Playfair Display',serif;font-size:clamp(16px,2.2vw,22px);font-style:italic;color:#fff;line-height:1.6;">「シンガポールは多様性が「弱点」ではなく「最大の強み」であることを証明した都市だ。」</blockquote>
+    <div style="font-size:11px;color:rgba(255,255,255,.35);margin-top:12px;letter-spacing:2px;text-transform:uppercase;">— Singapore Culture Guide 2025</div>
+  </div>
+
+  <!-- back link -->
+  <div style="margin-top:48px;text-align:center;" class="f">
+    <a href="index.html" style="display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.15);padding:13px 26px;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);transition:border-color .3s,color .3s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)';" onmouseout="this.style.borderColor='rgba(255,255,255,.15)';this.style.color='rgba(255,255,255,.4)';">
+      ← Singapore Life Guide Top
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-in">
+    <div><div class="ft-logo">Singapore<em>Culture</em></div><p class="ft-desc">160以上の国籍が共存するシンガポールの多文化を、歴史・祭り・タウン・食・言語から解説するガイド。</p></div>
+    <div>
+      <div class="ft-ct">Contents</div>
+      <div class="ft-lnk" onclick="go('s1')">01 — 多様性の起源と政策</div>
+      <div class="ft-lnk" onclick="go('s2')">02 — 年間イベントカレンダー</div>
+      <div class="ft-lnk" onclick="go('s3')">03 — エスニックタウン</div>
+      <div class="ft-lnk" onclick="go('s4')">04 — 各国の代表料理</div>
+      <div class="ft-lnk" onclick="go('s5')">05 — 各国フレーズ集</div>
+      <div class="ft-lnk" onclick="go('s6')">06 — まとめ</div>
+    </div>
+    <div>
+      <div class="ft-ct">Data Sources</div>
+      <p class="ft-desc" style="max-width:100%;">Singapore Dept of Statistics 2025<br>Population in Brief 2024<br>NLB Singapore Infopedia<br>Visit Singapore Official<br>Wikipedia / Cultural Atlas<br>最終更新: 2025年</p>
+    </div>
+  </div>
+  <div class="ft-btm">
+    <span>© 2025 Singapore Life Guide — Culture</span>
+    <span>Images: Unsplash (CC0)</span>
+  </div>
+</footer>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+/* Nav active */
+const secs=['s1','s2','s3','s4','s5','s6'];
+const nvs=document.querySelectorAll('.nv');
+const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)nvs.forEach((b,i)=>{b.classList.toggle('on',secs[i]===x.target.id);});});},{threshold:0.2});
+secs.forEach(id=>{const el=document.getElementById(id);if(el)io.observe(el);});
+
+/* Scroll */
+window.addEventListener('scroll',()=>{document.getElementById('btt').classList.toggle('show',window.scrollY>600);});
+
+/* Nav funcs */
+function go(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'});document.getElementById('sm').classList.remove('open');}
+function toggleM(){document.getElementById('sm').classList.toggle('open');}
+document.addEventListener('click',e=>{
+  const m=document.getElementById('sm'),h=document.getElementById('hbg');
+  if(!m.contains(e.target)&&!h.contains(e.target))m.classList.remove('open');
+});
+
+/* Hero img */
+window.addEventListener('load',()=>document.getElementById('hi')?.classList.add('rdy'));
+
+/* Fade observer */
+const fades=document.querySelectorAll('.f,.fl,.fr');
+const fo=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v');});},{threshold:0.1});
+fades.forEach(el=>{if(!el.classList.contains('v'))fo.observe(el);});
+
+/* Language tab switcher */
+function switchLang(btn, lang){
+  document.querySelectorAll('.lang-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.lang-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('lp-'+lang).classList.add('active');
+}
+</script>
+</body>
+</html>
